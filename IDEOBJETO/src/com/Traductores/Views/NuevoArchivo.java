@@ -6,6 +6,12 @@
 
 package com.Traductores.Views;
 
+import com.Traductores.Controllers.ClassController;
+import java.awt.event.ActionListener;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author JC
@@ -30,45 +36,60 @@ public class NuevoArchivo extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textFieldNombreClase = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listAtributos = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
         botonAgregarClase = new javax.swing.JButton();
-        botonAgregarAtributos = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
         botonTerminar = new javax.swing.JButton();
         botonSiguiente = new javax.swing.JButton();
+        botonAtributos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre del la clase");
 
-        jTextField1.setText("jTextField1");
-
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listAtributos.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listAtributos);
 
         jLabel2.setText("Atributos:");
 
         botonAgregarClase.setText("Aregar");
-
-        botonAgregarAtributos.setText("Agregar");
+        botonAgregarClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarClaseActionPerformed(evt);
+            }
+        });
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
 
         botonTerminar.setText("Terminar");
+        botonTerminar.setEnabled(false);
+        botonTerminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTerminarActionPerformed(evt);
+            }
+        });
 
         botonSiguiente.setText("Siguiente");
+        botonSiguiente.setEnabled(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSiguienteActionPerformed(evt);
             }
         });
+
+        botonAtributos.setText("Agregar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,14 +103,14 @@ public class NuevoArchivo extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textFieldNombreClase, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonAgregarClase)
-                    .addComponent(botonAgregarAtributos))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(botonAtributos))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(159, Short.MAX_VALUE)
                 .addComponent(botonSiguiente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonTerminar)
@@ -103,7 +124,7 @@ public class NuevoArchivo extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldNombreClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonAgregarClase))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -112,8 +133,8 @@ public class NuevoArchivo extends javax.swing.JDialog {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(botonAgregarAtributos)))
+                        .addGap(47, 47, 47)
+                        .addComponent(botonAtributos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCancelar)
@@ -132,6 +153,51 @@ public class NuevoArchivo extends javax.swing.JDialog {
         pantallaMetodos.setModal(true);
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
+    private void botonAgregarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarClaseActionPerformed
+        // TODO add your handling code here:
+        ClassController controladorClase = new ClassController(this, textFieldNombreClase.getText());
+    }//GEN-LAST:event_botonAgregarClaseActionPerformed
+
+    private void botonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc=new JFileChooser();
+        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(".xml","xml");
+        fc.setFileFilter(filtro);
+
+        //Abrimos la ventana, guardamos la opcion seleccionada por el usuario
+        int seleccion=fc.showSaveDialog(this);
+
+        //Si el usuario, pincha en aceptar
+        if(seleccion == JFileChooser.APPROVE_OPTION)
+        {          
+            ClassController.GuardarXML(fc.getSelectedFile().toString());
+            botonTerminar.setEnabled(false);
+            //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
+            //botonAceptar.setEnabled(false);
+        }
+    }//GEN-LAST:event_botonTerminarActionPerformed
+
+    
+    
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
+    public void activarBotonTerminar(boolean activar){
+        botonTerminar.setEnabled(activar);
+    }
+    public void activarBotonSiguiente(boolean activar){
+        botonSiguiente.setEnabled(activar);
+    }
+    public void mensaje(Object mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+    public void agregarAtribustListener(ActionListener listenerParaBotonAgregarAtributos){
+        botonAtributos.addActionListener(listenerParaBotonAgregarAtributos);
+    }
     /**
      * @param args the command line arguments
      */
@@ -175,15 +241,15 @@ public class NuevoArchivo extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAgregarAtributos;
     private javax.swing.JButton botonAgregarClase;
+    private javax.swing.JButton botonAtributos;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonSiguiente;
     private javax.swing.JButton botonTerminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JList listAtributos;
+    private javax.swing.JTextField textFieldNombreClase;
     // End of variables declaration//GEN-END:variables
 }
