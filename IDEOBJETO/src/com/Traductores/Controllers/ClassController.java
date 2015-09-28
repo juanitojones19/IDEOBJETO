@@ -32,7 +32,6 @@ public class ClassController
         this.vista = vista;
         //Diccionario.cargarPalabras("palabrasReservadas.txt");
         validarNombre(nombreClase);
-        this.vista.agregarAtribustListener(new AgregarListener());
     }
     
     public void validarNombre(String nombreClase)
@@ -62,19 +61,6 @@ public class ClassController
     public static void GuardarXML(String ruta)
     {
         ArchivoXML.contendioXML(ruta);
-    }
-    
-    class AgregarListener implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            AgregarAtributosVista vistaAtributos = new AgregarAtributosVista(vista, true);
-            vistaAtributos.setVisible(true);
-            vistaAtributos.setModal(true);
-            VariableController controladorAtributos = new VariableController(vistaAtributos);
-            
-        }
-    
     }
     
 }
