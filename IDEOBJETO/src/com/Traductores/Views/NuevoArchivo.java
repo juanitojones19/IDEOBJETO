@@ -7,6 +7,7 @@
 package com.Traductores.Views;
 
 import com.Traductores.Controllers.ClassController;
+import com.Traductores.Controllers.VariableController;
 import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -37,8 +38,6 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         textFieldNombreClase = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listAtributos = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
         botonAgregarClase = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
@@ -50,16 +49,9 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
         jLabel1.setText("Nombre del la clase");
 
-        listAtributos.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(listAtributos);
-
         jLabel2.setText("Atributos:");
 
-        botonAgregarClase.setText("Aregar");
+        botonAgregarClase.setText("Agregar");
         botonAgregarClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAgregarClaseActionPerformed(evt);
@@ -90,6 +82,11 @@ public class NuevoArchivo extends javax.swing.JDialog {
         });
 
         botonAtributos.setText("Agregar");
+        botonAtributos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtributosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,16 +98,14 @@ public class NuevoArchivo extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(textFieldNombreClase, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                .addComponent(textFieldNombreClase, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAgregarClase)
-                    .addComponent(botonAtributos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonAtributos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonAgregarClase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+                .addContainerGap(165, Short.MAX_VALUE)
                 .addComponent(botonSiguiente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonTerminar)
@@ -126,16 +121,11 @@ public class NuevoArchivo extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(textFieldNombreClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonAgregarClase))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(botonAtributos)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(botonAtributos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCancelar)
                     .addComponent(botonTerminar)
@@ -148,9 +138,9 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         // TODO add your handling code here:
-        AgregarMetodos pantallaMetodos = new AgregarMetodos();
+        AgregarMetodos pantallaMetodos = new AgregarMetodos(this, true);
         pantallaMetodos.setVisible(true);
-        pantallaMetodos.setModal(true);
+        this.dispose();
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonAgregarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarClaseActionPerformed
@@ -175,6 +165,7 @@ public class NuevoArchivo extends javax.swing.JDialog {
             botonTerminar.setEnabled(false);
             //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
             //botonAceptar.setEnabled(false);
+            this.dispose();
         }
     }//GEN-LAST:event_botonTerminarActionPerformed
 
@@ -184,6 +175,12 @@ public class NuevoArchivo extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
+
+    private void botonAtributosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtributosActionPerformed
+        // TODO add your handling code here:
+        AgregarAtributosVista vistaAtributos = new AgregarAtributosVista(this, true);
+        vistaAtributos.setVisible(true);
+    }//GEN-LAST:event_botonAtributosActionPerformed
 
     public void activarBotonTerminar(boolean activar){
         botonTerminar.setEnabled(activar);
@@ -195,9 +192,6 @@ public class NuevoArchivo extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, mensaje);
     }
     
-    public void agregarAtribustListener(ActionListener listenerParaBotonAgregarAtributos){
-        botonAtributos.addActionListener(listenerParaBotonAgregarAtributos);
-    }
     /**
      * @param args the command line arguments
      */
@@ -248,8 +242,6 @@ public class NuevoArchivo extends javax.swing.JDialog {
     private javax.swing.JButton botonTerminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList listAtributos;
     private javax.swing.JTextField textFieldNombreClase;
     // End of variables declaration//GEN-END:variables
 }
