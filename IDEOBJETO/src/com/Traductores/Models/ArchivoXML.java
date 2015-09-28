@@ -57,7 +57,7 @@ public class ArchivoXML
     public static void crearTagClase(String nombreClase )
     {
 
-        clase = doc.createElement("classtl");
+        clase = doc.createElement("MoldeObjeto");
         clase.setAttribute("nombreClase", nombreClase);
 
     }// fin del elemento crearTagParrafoOracion
