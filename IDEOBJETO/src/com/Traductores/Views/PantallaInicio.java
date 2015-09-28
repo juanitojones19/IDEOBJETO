@@ -61,6 +61,11 @@ public class PantallaInicio extends javax.swing.JFrame {
         jMenu1.add(menuItemNuevoProyecto);
 
         menuItemNuevoArchivo.setText("Nuevo Archivo");
+        menuItemNuevoArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemNuevoArchivoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemNuevoArchivo);
 
         menuItemAbriProyecto.setText("Abrir Proyecto");
@@ -86,6 +91,12 @@ public class PantallaInicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuItemNuevoArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNuevoArchivoActionPerformed
+        // TODO add your handling code here:
+        NuevoArchivo pantallaNuevoArchivo = new NuevoArchivo(this, true);
+        pantallaNuevoArchivo.setVisible(true);
+    }//GEN-LAST:event_menuItemNuevoArchivoActionPerformed
 
     /**
      * @param args the command line arguments
