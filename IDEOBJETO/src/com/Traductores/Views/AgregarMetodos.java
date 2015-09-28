@@ -48,7 +48,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
         botonTerminar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre del metodo:");
 
