@@ -30,6 +30,7 @@ public class ArchivoXML
     private static Element clase;
     private static Element variable;
     private static Element metodo;
+    private static Element variableLocal;
     public ArchivoXML()
     {
         crearDocumentoXML();
@@ -62,18 +63,20 @@ public class ArchivoXML
 
     }// fin del elemento crearTagParrafoOracion
 
-    public static void crearTagVarialbe(String nombreVariable, String tipoValor, String valor)
+    public static void crearTagVarialbe(String acceso, String nombreVariable, String tipoValor, String valor)
     {
-        variable = doc.createElement("variable");
+        variable = doc.createElement("AtributoObjeto");
+        variable.setAttribute("acceso", acceso);
         variable.setAttribute("nombre", nombreVariable);
         variable.setAttribute("Tipodevalor", tipoValor);
         variable.setAttribute("Valor", valor);
         clase.appendChild(variable);
     }
     
-    public static void crearTagMetodo(String nombreMetodo, String tipoRetorno)
+    public static void crearTagMetodo(String acceso, String nombreMetodo, String tipoRetorno)
     {
         metodo = doc.createElement("metodo");
+        metodo.setAttribute("acesso", acceso);
         metodo.setAttribute("nombre", nombreMetodo);
         metodo.setAttribute("tipoderetorno", tipoRetorno);
         clase.appendChild(metodo);
@@ -84,6 +87,16 @@ public class ArchivoXML
     {
         metodo.setAttribute("parametro" + nombreParametro, nombreParametro);
         metodo.setAttribute("tipoDatode" + nombreParametro, tipoDato);
+        
+    }
+    
+    public static void tagVariablesLocales(String nombreVariable, String tipoDato, String valor)
+    {
+        variableLocal = doc.createElement("varialbeLocla");
+        variableLocal.setAttribute("TipoDato", tipoDato);
+        variableLocal.setAttribute("NombreVariable", nombreVariable);
+        variableLocal.setAttribute("Valor", valor);
+        metodo.appendChild(variableLocal);
         
     }
 
