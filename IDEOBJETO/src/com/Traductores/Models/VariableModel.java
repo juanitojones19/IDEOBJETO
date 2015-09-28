@@ -24,7 +24,7 @@ public class VariableModel
     private static String mensaje = "";
     private JDialog ventana;
     
-    public VariableModel( JDialog ventanaDialogo, String nombreVariable, String tipoValor, String valor)
+    public VariableModel( JDialog ventanaDialogo, String acceso, String nombreVariable, String tipoValor, String valor)
     {
         DiccionarioTipoDatos.cargarPalabras("TipodeVariables.txt");
         Diccionario.cargarPalabras("palabrasReservadas.txt");
@@ -37,7 +37,7 @@ public class VariableModel
                 {
                     //JOptionPane.showMessageDialog(ventanaDialogo, "nombre de variable correcta, no es palabra reservada y es tipo de valor valido");
                     //listaVariablres.add(nombreVariable);
-                    agregarVariable(nombreVariable, tipoValor, valor);
+                    agregarVariable(acceso, nombreVariable, tipoValor, valor);
                                        
                 }else{// si no corresponden manda un mensaje
                     JOptionPane.showMessageDialog(ventanaDialogo, "Tipo de valor no valiod");
@@ -115,7 +115,7 @@ public class VariableModel
     }//fin del metodo yaSeAgrego
     
     //metodo que agregar el nombre de una variable a una lista
-    public static boolean agregarVariable(String nombreVariable, String tipoValor, String valor)
+    public static boolean agregarVariable(String acceso, String nombreVariable, String tipoValor, String valor)
     {
         boolean seAgrego = true;
         //System.out.println(bandera);
@@ -123,7 +123,7 @@ public class VariableModel
         {
             listaVariablres.add(nombreVariable);
             bandera = false;
-            ArchivoXML.crearTagVarialbe(nombreVariable, tipoValor, valor);
+            ArchivoXML.crearTagVarialbe(acceso, nombreVariable, tipoValor, valor);
             mensaje = "Ya se agrego la variable: " + nombreVariable;
         }else{// de lo contrario
             if(yaSeAgrego(nombreVariable))// si el nombre de la variable esta repetido
@@ -133,7 +133,7 @@ public class VariableModel
                 seAgrego = false;
             }else{// de lo contrario agrega el nombre de la variable
                 listaVariablres.add(nombreVariable);
-                ArchivoXML.crearTagVarialbe(nombreVariable, tipoValor, valor);
+                ArchivoXML.crearTagVarialbe(acceso, nombreVariable, tipoValor, valor);
                 mensaje = "Se agrego correctamemente: " + nombreVariable;
             }//fin del if - else dentro del else
         }// fin del if - else
