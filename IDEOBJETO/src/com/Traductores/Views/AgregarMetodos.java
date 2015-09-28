@@ -10,11 +10,16 @@ package com.Traductores.Views;
  *
  * @author JC
  */
-public class AgregarMetodos extends javax.swing.JFrame {
+public class AgregarMetodos extends javax.swing.JDialog {
 
     /**
      * Creates new form AgregarMetodos
      */
+    public AgregarMetodos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+    
     public AgregarMetodos() {
         initComponents();
     }
@@ -29,55 +34,55 @@ public class AgregarMetodos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        texFieldNombreMetodo = new javax.swing.JTextField();
+        botonNombreMetodo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listaVariablesLocales = new javax.swing.JList();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        listaParametros = new javax.swing.JList();
+        botonAgregarParametros = new javax.swing.JButton();
+        botonAgregarVariablesLocales = new javax.swing.JButton();
+        BotonAgregarNuevoMetodo = new javax.swing.JButton();
+        botonTerminar = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nombre del metodo:");
 
-        jTextField1.setText("jTextField1");
+        texFieldNombreMetodo.setText("jTextField1");
 
-        jButton1.setText("Agregar");
+        botonNombreMetodo.setText("Agregar");
 
         jLabel2.setText("Paramteros del metodo:");
 
         jLabel3.setText("Variables locales:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listaVariablesLocales.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(listaVariablesLocales);
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        listaParametros.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList2);
+        jScrollPane1.setViewportView(listaParametros);
 
-        jButton2.setText("Agregar");
+        botonAgregarParametros.setText("Agregar");
 
-        jButton3.setText("Agregar");
+        botonAgregarVariablesLocales.setText("Agregar");
 
-        jButton4.setText("Agregar otro Metodo");
+        BotonAgregarNuevoMetodo.setText("Agregar otro Metodo");
 
-        jButton5.setText("Terminar");
+        botonTerminar.setText("Terminar");
 
-        jButton6.setText("Cancelar");
+        botonCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,20 +99,20 @@ public class AgregarMetodos extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addComponent(jScrollPane1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(texFieldNombreMetodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(botonAgregarParametros)
+                    .addComponent(botonAgregarVariablesLocales)
+                    .addComponent(botonNombreMetodo))
                 .addGap(164, 164, 164))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(BotonAgregarNuevoMetodo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(botonTerminar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(botonCancelar)
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -116,23 +121,23 @@ public class AgregarMetodos extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(texFieldNombreMetodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonNombreMetodo))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(botonAgregarParametros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
+                    .addComponent(botonAgregarVariablesLocales)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(BotonAgregarNuevoMetodo)
+                    .addComponent(botonTerminar)
+                    .addComponent(botonCancelar))
                 .addContainerGap())
         );
 
@@ -169,25 +174,32 @@ public class AgregarMetodos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarMetodos().setVisible(true);
+                AgregarMetodos dialog = new AgregarMetodos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton BotonAgregarNuevoMetodo;
+    private javax.swing.JButton botonAgregarParametros;
+    private javax.swing.JButton botonAgregarVariablesLocales;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonNombreMetodo;
+    private javax.swing.JButton botonTerminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JList listaParametros;
+    private javax.swing.JList listaVariablesLocales;
+    private javax.swing.JTextField texFieldNombreMetodo;
     // End of variables declaration//GEN-END:variables
 }
