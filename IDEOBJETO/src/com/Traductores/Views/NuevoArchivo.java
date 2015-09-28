@@ -34,11 +34,11 @@ public class NuevoArchivo extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        botonAgregarClase = new javax.swing.JButton();
+        botonAgregarAtributos = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        botonTerminar = new javax.swing.JButton();
+        botonSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,15 +55,20 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
         jLabel2.setText("Atributos:");
 
-        jButton1.setText("Aregar");
+        botonAgregarClase.setText("Aregar");
 
-        jButton2.setText("Agregar");
+        botonAgregarAtributos.setText("Agregar");
 
-        jButton3.setText("Cancelar");
+        botonCancelar.setText("Cancelar");
 
-        jButton4.setText("Terminar");
+        botonTerminar.setText("Terminar");
 
-        jButton5.setText("Siguiente");
+        botonSiguiente.setText("Siguiente");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSiguienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,16 +85,16 @@ public class NuevoArchivo extends javax.swing.JDialog {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botonAgregarClase)
+                    .addComponent(botonAgregarAtributos))
                 .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(botonSiguiente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(botonTerminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(botonCancelar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,7 +104,7 @@ public class NuevoArchivo extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(botonAgregarClase))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -108,17 +113,24 @@ public class NuevoArchivo extends javax.swing.JDialog {
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jButton2)))
+                        .addComponent(botonAgregarAtributos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(botonCancelar)
+                    .addComponent(botonTerminar)
+                    .addComponent(botonSiguiente))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        // TODO add your handling code here:
+        AgregarMetodos pantallaMetodos = new AgregarMetodos();
+        pantallaMetodos.setVisible(true);
+        pantallaMetodos.setModal(true);
+    }//GEN-LAST:event_botonSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,11 +175,11 @@ public class NuevoArchivo extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton botonAgregarAtributos;
+    private javax.swing.JButton botonAgregarClase;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonSiguiente;
+    private javax.swing.JButton botonTerminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList jList1;
