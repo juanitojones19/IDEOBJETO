@@ -6,6 +6,7 @@
 
 package com.Traductores.Views;
 
+import com.Traductores.Controllers.VariableController;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
@@ -62,8 +63,18 @@ public class AgregarAtributosVista extends javax.swing.JDialog {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "private", "public" }));
 
         botonAgregar.setText("Agregar");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarActionPerformed(evt);
+            }
+        });
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Tipo de dato:");
 
@@ -92,7 +103,7 @@ public class AgregarAtributosVista extends javax.swing.JDialog {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textFielNombreVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,12 +134,21 @@ public class AgregarAtributosVista extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        // TODO add your handling code here:
+        VariableController controladorVariable = new VariableController(this);
+        
+    }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
     public void mostarMensajeError(Object mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
-   public void agregarAtributosListener(ActionListener listenerParaBotonAgregarAtributos){
-        botonAgregar.addActionListener(listenerParaBotonAgregarAtributos);
-    }
+  
     /**
      * @param args the command line arguments
      */
@@ -184,6 +204,7 @@ public class AgregarAtributosVista extends javax.swing.JDialog {
     private javax.swing.JTextField textFieldValor;
     // End of variables declaration//GEN-END:variables
 
+    
     /**
      * @return the botonAgregar
      */
