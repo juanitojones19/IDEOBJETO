@@ -6,6 +6,8 @@
 
 package ideobjeto;
 
+import com.Traductores.Views.PantallaInicio;
+
 /**
  *
  * @author JC
@@ -17,6 +19,8 @@ public class IDEOBJETO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        PantallaInicio pantallaIncialIDE = new PantallaInicio();
+        pantallaIncialIDE.setVisible(true);
     }
     
 }
