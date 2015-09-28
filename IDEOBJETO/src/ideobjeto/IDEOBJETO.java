@@ -6,6 +6,7 @@
 
 package ideobjeto;
 
+import com.Traductores.Views.AgregarMetodos;
 import com.Traductores.Views.PantallaInicio;
 
 /**
