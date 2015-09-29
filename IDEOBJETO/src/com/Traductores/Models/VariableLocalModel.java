@@ -130,12 +130,12 @@ public class VariableLocalModel
             getListaVariablres().add(nombreVariable);
             bandera = false;
             ArchivoXML.tagVariablesLocales(nombreVariable, tipoValor, valor);
-            mensaje = "Ya se agrego la variable: " + nombreVariable;
+            mensaje = "Se agrego la variable: " + nombreVariable;
         }else{// de lo contrario
             if(yaSeAgrego(nombreVariable))// si el nombre de la variable esta repetido
             {
                 //JOptionPane.showMessageDialog(ventana, "Ya se agrego la variable " + nombreVariable);//manda mensaje
-                mensaje = "Ya se agrego la variable: " + nombreVariable;
+                mensaje = "La variable: " + nombreVariable + " esta repetida";
                 seAgrego = false;
             }else{// de lo contrario agrega el nombre de la variable
                 getListaVariablres().add(nombreVariable);
