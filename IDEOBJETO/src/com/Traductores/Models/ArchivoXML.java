@@ -106,7 +106,7 @@ public class ArchivoXML
     }
 
     //crear documento XML
-    public static void contendioXML(String ruta)
+    public static void contendioXML()
     {
         try
         {
@@ -125,7 +125,7 @@ public class ArchivoXML
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
 
             DOMSource source = new DOMSource(doc);
-            File archivo = new File(ruta+".xml");
+            File archivo = new File(clase.getAttribute("nombreClase")+".xml");
             StreamResult result = new StreamResult(archivo);
             transformer.transform(source, result);
             //StreamResult resultado = new StreamResult(System.out);
