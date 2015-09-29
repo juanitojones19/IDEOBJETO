@@ -53,6 +53,7 @@ public class MetodoModel
     //metodo que valida el nombre de un metodo
     public static boolean validarIdentificador(String nombreMetodo)
     {
+        Diccionario.cargarPalabras("palabrasReservadas.txt");
         boolean valido = true;
         
         if(!esNombreValido(nombreMetodo))// si no es valido elnombre
