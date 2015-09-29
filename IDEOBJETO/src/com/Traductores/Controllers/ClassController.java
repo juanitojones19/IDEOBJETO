@@ -58,9 +58,14 @@ public class ClassController
         return mensaje;
     }
     
-    public static void GuardarXML(String ruta)
+    public static void GuardarXML()
     {
-        ArchivoXML.contendioXML(ruta);
+        ArchivoXML.contendioXML();
+    }
+    
+    public static String nombreClase()
+    {
+        return nombreClase;
     }
     
 }
