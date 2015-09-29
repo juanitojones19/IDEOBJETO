@@ -7,6 +7,7 @@
 package com.Traductores.Views;
 
 import com.Traductores.Controllers.ClassController;
+import com.Traductores.Controllers.MetodosControllers;
 import com.Traductores.Controllers.VariableController;
 import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
@@ -138,6 +139,7 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         // TODO add your handling code here:
+        MetodosControllers.borrarListaVariablesLocales();
         AgregarMetodos pantallaMetodos = new AgregarMetodos(this, true);
         pantallaMetodos.setVisible(true);
         this.dispose();
