@@ -32,7 +32,7 @@ public class MetodosControllers
     public void validarNombreMetodo(String acceso, String nombreMetodo, String tipoRetorno)
     {
         if(MetodoModel.validarIdentificador(nombreMetodo)){// si el nombre es valido
-            if(MetodoModel.tipoValorValido(tipoRetorno)){
+            if(MetodoModel.validarTipoRetorno(tipoRetorno)){
                 if(MetodoModel.agregarMetodo(acceso, nombreMetodo, tipoRetorno)){
                     vista.getBotonAgregarParametros().setEnabled(true);
                     vista.getBotonAgregarVariablesLocales().setEnabled(true);
