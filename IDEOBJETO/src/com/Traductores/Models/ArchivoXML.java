@@ -20,6 +20,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.StringWriter;
+import javax.xml.transform.OutputKeys;
+import org.w3c.dom.DOMImplementation;
 /**
  *
  * @author JC
@@ -31,6 +33,7 @@ public class ArchivoXML
     private static Element variable;
     private static Element metodo;
     private static Element variableLocal;
+    private static String contendioXML;
     public ArchivoXML()
     {
         crearDocumentoXML();
@@ -44,8 +47,10 @@ public class ArchivoXML
         {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-            doc = docBuilder.newDocument();
-            doc.setXmlStandalone(true);
+            DOMImplementation implementation = docBuilder.getDOMImplementation();
+            doc = implementation.createDocument(null, null, null);
+            //doc = docBuilder.newDocument();
+            //doc.setXmlStandalone(true);
 
             //crea tag principal
             //documento = doc.createElement("Documento");
@@ -108,15 +113,26 @@ public class ArchivoXML
             
             //se agrega el tago principal al documento
             doc.appendChild(clase);
+            ///doc.getDocumentElement().appendChild(clase);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", new Integer(5));
+            
+            
             Transformer transformer = transformerFactory.newTransformer();
+            
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
 
             DOMSource source = new DOMSource(doc);
             File archivo = new File(ruta+".xml");
             StreamResult result = new StreamResult(archivo);
             transformer.transform(source, result);
-            //contenido = result.getWriter().toString();
+            //StreamResult resultado = new StreamResult(System.out);
+            //transformer.transform(source, resultado);
+            //System.out.println(result.getWriter().toString());
+            
+            
         }catch (TransformerConfigurationException ex){
             ex.printStackTrace();
         }catch (TransformerException ex){
@@ -124,4 +140,8 @@ public class ArchivoXML
         }
         
     }// fin del metodo crearXML
-}
+    
+    public static String getContenidoXML(){
+        return contendioXML;
+    }
+}//fin de la clase
