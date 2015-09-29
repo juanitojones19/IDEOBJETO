@@ -168,6 +168,8 @@ public class NuevoArchivo extends javax.swing.JDialog {
             //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
             //botonAceptar.setEnabled(false);
             this.dispose();
+            PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, fc.getSelectedFile().toString());
+            pantallaXML.setVisible(true);
         }
     }//GEN-LAST:event_botonTerminarActionPerformed
 
