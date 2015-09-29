@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="botonAgregar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="botonCancelar" min="-2" max="-2" attributes="0"/>
@@ -40,12 +40,12 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="textFieldTipoDato" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                  <Component id="textFieldValor" min="-2" max="-2" attributes="0"/>
-                  <Component id="textFielNombreVariable" min="-2" max="-2" attributes="0"/>
+                  <Component id="textFielNombreVariable" alignment="0" max="32767" attributes="0"/>
+                  <Component id="textFieldTipoDato" alignment="0" max="32767" attributes="0"/>
+                  <Component id="textFieldValor" max="32767" attributes="0"/>
+                  <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,14 +99,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFielNombreVariable">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldValor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
@@ -140,9 +134,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldTipoDato">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
