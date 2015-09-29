@@ -279,6 +279,8 @@ public class AgregarMetodos extends javax.swing.JDialog {
         getBotonAgregarParametros().setEnabled(false);
         getBotonAgregarVariablesLocales().setEnabled(false);
         getBotonNombreMetodo().setEnabled(true);
+        MetodosControllers.borrarListaParametros();
+        MetodosControllers.borrarListaVariablesLocales();
     }//GEN-LAST:event_BotonAgregarNuevoMetodoActionPerformed
 
     public void mensaje(String mensaje){
