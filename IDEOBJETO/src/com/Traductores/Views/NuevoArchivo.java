@@ -163,7 +163,7 @@ public class NuevoArchivo extends javax.swing.JDialog {
         //Si el usuario, pincha en aceptar
         if(seleccion == JFileChooser.APPROVE_OPTION)
         {          
-            ClassController.GuardarXML(fc.getSelectedFile().toString());
+            ClassController.GuardarXML();
             botonTerminar.setEnabled(false);
             //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
             //botonAceptar.setEnabled(false);
