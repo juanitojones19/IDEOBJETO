@@ -8,6 +8,19 @@ package com.Traductores.Views;
 
 import com.Traductores.Controllers.ArchivoXMLController;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -98,8 +111,17 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
+        try {
+            ArchivoXMLController.GuardarArchivo(textAreaXML.getText());
+        } catch (SAXException ex) {
+            Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
