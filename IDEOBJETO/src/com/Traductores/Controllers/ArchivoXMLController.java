@@ -9,6 +9,21 @@ package com.Traductores.Controllers;
 import com.Traductores.Models.ArchivoXML;
 import com.Traductores.Models.LectorArchivo;
 import com.Traductores.Views.PantallaArchivoXML;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -28,9 +43,20 @@ public class ArchivoXMLController
         return LectorArchivo.obtenerTexto(ruta);
     }
     
-    public static void GuardarArchivo()
-    {
-        
+    public static void GuardarArchivo(String contenido)
+        throws SAXException, ParserConfigurationException, IOException, TransformerConfigurationException, TransformerException {
+        // Parse the given input
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(new InputSource(new StringReader(contenido)));
+
+        // Write the parsed document to an xml file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+
+        StreamResult result =  new StreamResult(new File(ClassController.nombreClase()));
+        transformer.transform(source, result);
     }
     
 }
