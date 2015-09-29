@@ -249,6 +249,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
 
     private void botonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarActionPerformed
         // TODO add your handling code here:
+        /*
          JFileChooser fc=new JFileChooser();
         
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(".xml","xml");
@@ -260,15 +261,21 @@ public class AgregarMetodos extends javax.swing.JDialog {
         //Si el usuario, pincha en aceptar
         if(seleccion == JFileChooser.APPROVE_OPTION)
         {          
-            ClassController.GuardarXML(fc.getSelectedFile().toString());
-            botonTerminar.setEnabled(false);
+            
             //System.out.println(fc.getSelectedFile().toString());
             //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
             //botonAceptar.setEnabled(false);
-            this.dispose();
+            
             PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, fc.getSelectedFile().toString());
             pantallaXML.setVisible(true);
+            
         }
+        */
+        ClassController.GuardarXML();
+        botonTerminar.setEnabled(false);
+        this.dispose();
+        PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, ClassController.nombreClase());
+        pantallaXML.setVisible(true);
     }//GEN-LAST:event_botonTerminarActionPerformed
 
     private void BotonAgregarNuevoMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarNuevoMetodoActionPerformed
