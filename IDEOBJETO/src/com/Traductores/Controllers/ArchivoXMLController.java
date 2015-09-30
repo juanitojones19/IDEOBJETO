@@ -43,17 +43,27 @@ public class ArchivoXMLController
         return LectorArchivo.obtenerTexto(ruta);
     }
     
-    public static void GuardarArchivo(String contenido)
+    public static void Guardar()
+    {
+        
+    }
+    
+    public static void GuardarArchivo(String contenidoXML)
         throws SAXException, ParserConfigurationException, IOException, TransformerConfigurationException, TransformerException {
+        
+
         // Parse the given input
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new InputSource(new StringReader(contenido)));
+        Document doc = builder.parse(new InputSource(new StringReader(contenidoXML)));
 
         // Write the parsed document to an xml file
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
+        
+        File carpter = new File("proyecto_IDEOBJ");
+        
 
         StreamResult result =  new StreamResult(new File(ClassController.nombreClase()));
         transformer.transform(source, result);
