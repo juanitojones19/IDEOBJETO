@@ -30,6 +30,8 @@ public class ArchivoXML
 {
     private static Document doc;
     private static Element clase;
+    private static Element AtributoObjeto;
+    private static Element AccionesObjetos;
     private static Element variable;
     private static Element metodo;
     private static Element variableLocal;
@@ -54,6 +56,8 @@ public class ArchivoXML
 
             //crea tag principal
             //documento = doc.createElement("Documento");
+            AtributoObjeto = doc.createElement("AtributosObjetos");
+            AccionesObjetos = doc.createElement("ComportamientosObjetos");
         }catch(ParserConfigurationException ex){
             ex.printStackTrace();
         }
@@ -65,26 +69,30 @@ public class ArchivoXML
 
         clase = doc.createElement("MoldeObjeto");
         clase.setAttribute("nombreClase", nombreClase);
+        //AtributoObjeto = doc.createElement("AtributosObjetos");
 
     }// fin del elemento crearTagParrafoOracion
 
     public static void crearTagVarialbe(String acceso, String nombreVariable, String tipoValor, String valor)
     {
+        //AtributoObjeto = doc.createElement("AtributosObjetos");
         variable = doc.createElement("AtributoObjeto");
         variable.setAttribute("acceso", acceso);
         variable.setAttribute("nombre", nombreVariable);
         variable.setAttribute("Tipodevalor", tipoValor);
         variable.setAttribute("Valor", valor);
-        clase.appendChild(variable);
+        AtributoObjeto.appendChild(variable);
+        clase.appendChild(AtributoObjeto);
     }
     
     public static void crearTagMetodo(String acceso, String nombreMetodo, String tipoRetorno)
     {
-        metodo = doc.createElement("metodo");
-        metodo.setAttribute("acesso", acceso);
+        metodo = doc.createElement("ComportamientoObjeto");
+        metodo.setAttribute("acceso", acceso);
         metodo.setAttribute("nombre", nombreMetodo);
         metodo.setAttribute("tipoderetorno", tipoRetorno);
-        clase.appendChild(metodo);
+        AccionesObjetos.appendChild(metodo);
+        clase.appendChild(AccionesObjetos);
         
     }
     
@@ -110,7 +118,9 @@ public class ArchivoXML
     {
         try
         {
-            
+             //AtributoObjeto.appendChild(variable);
+             clase.appendChild(AtributoObjeto);
+             clase.appendChild(AccionesObjetos);
             //se agrega el tago principal al documento
             doc.appendChild(clase);
             ///doc.getDocumentElement().appendChild(clase);
