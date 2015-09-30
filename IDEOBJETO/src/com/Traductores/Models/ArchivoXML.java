@@ -121,8 +121,10 @@ public class ArchivoXML
             
             Transformer transformer = transformerFactory.newTransformer();
             
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+            
+            //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
 
             DOMSource source = new DOMSource(doc);
             File archivo = new File(clase.getAttribute("nombreClase")+".xml");
