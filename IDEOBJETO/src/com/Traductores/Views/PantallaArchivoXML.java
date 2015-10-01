@@ -7,6 +7,7 @@
 package com.Traductores.Views;
 
 import com.Traductores.Controllers.ArchivoXMLController;
+import com.Traductores.Controllers.TokenController;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -61,8 +62,8 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaXML = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonGuardarXML = new javax.swing.JButton();
+        botonAnalizaToken = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -71,14 +72,19 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
         textAreaXML.setRows(5);
         jScrollPane1.setViewportView(textAreaXML);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonGuardarXML.setText("Guardar");
+        botonGuardarXML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonGuardarXMLActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Tokens");
+        botonAnalizaToken.setText("Tokens");
+        botonAnalizaToken.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAnalizaTokenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,8 +95,8 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botonGuardarXML)
+                    .addComponent(botonAnalizaToken))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,16 +107,16 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jButton1)
+                .addComponent(botonGuardarXML)
                 .addGap(28, 28, 28)
-                .addComponent(jButton2)
+                .addComponent(botonAnalizaToken)
                 .addContainerGap(330, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonGuardarXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarXMLActionPerformed
         try {
             ArchivoXMLController.GuardarArchivo(textAreaXML.getText());
         } catch (SAXException ex) {
@@ -123,7 +129,12 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
             Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonGuardarXMLActionPerformed
+
+    private void botonAnalizaTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnalizaTokenActionPerformed
+        // TODO add your handling code here:
+        TokenController.analizarXML();
+    }//GEN-LAST:event_botonAnalizaTokenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,8 +179,8 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonAnalizaToken;
+    private javax.swing.JButton botonGuardarXML;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textAreaXML;
     // End of variables declaration//GEN-END:variables
