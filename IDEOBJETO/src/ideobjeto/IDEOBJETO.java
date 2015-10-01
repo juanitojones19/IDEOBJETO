@@ -6,6 +6,7 @@
 
 package ideobjeto;
 
+import com.Traductores.Controllers.TokenController;
 import com.Traductores.Views.AgregarMetodos;
 import com.Traductores.Views.PantallaInicio;
 
@@ -20,8 +21,9 @@ public class IDEOBJETO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        PantallaInicio pantallaIncialIDE = new PantallaInicio();
-        pantallaIncialIDE.setVisible(true);
+        //PantallaInicio pantallaIncialIDE = new PantallaInicio();
+        //pantallaIncialIDE.setVisible(true);
+        TokenController.analizarXML();
     }
     
 }
