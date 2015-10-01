@@ -13,10 +13,10 @@ import java.io.File;
  */
 public class TokenController 
 {
-    public static void analizarXML()
+    public static String generarReporteXML()
     {
         //TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));
-        TokenModel.obtenerElementsoDeXML(new File("caballo.xml"));//prueba
+        return TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));//prueba
  
     }
     
