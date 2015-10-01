@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.Traductores.Models;
 
@@ -29,11 +24,11 @@ public class TokenModel
     
     public TokenModel(File archivoXML)
     {
-        obtenerElementsoDeXML(archivoXML);
+        System.out.println(obtenerElementsoDeXML(archivoXML));
     }
 
     //Metodo que obtiene los elementos de un xml por tags
-    public static void obtenerElementsoDeXML(File archivoXML) 
+    public static String obtenerElementsoDeXML(File archivoXML) 
     {
         int totalElementos = 0;
         try {
@@ -45,14 +40,12 @@ public class TokenModel
             NodeList atributosList =  clase.getElementsByTagName("AtributoObjeto");
             
             System.out.println("Numero de atributos: " + atributosList.getLength());
-            obtenerElementosAtributosObjeto(atributosList);
+            reporte += obtenerElementosAtributosObjeto(atributosList);
             
             NodeList metodosList = clase.getElementsByTagName("ComportamientoObjeto");
             
             System.out.println("Numero de atributos en comportamiento de objetos: " + metodosList.getLength());
-            obtenerElementosComportamientoObjeto(metodosList);
-            
-            
+            reporte += obtenerElementosComportamientoObjeto(metodosList);
             
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(TokenModel.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,67 +54,74 @@ public class TokenModel
         } catch (IOException ex) {
             Logger.getLogger(TokenModel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return reporte;
     }///Fin del metodo obtenerElemetosDeXML
     
     //metodo que obtiene los atributos del tag AtributoOjbeto
-    public static void obtenerElementosAtributosObjeto(NodeList atributosList)
+    public static String obtenerElementosAtributosObjeto(NodeList atributosList)
     {
+        String reporte = "";
         if(atributosList != null & atributosList.getLength() > 0)
         {
             for(int i = 0; i < atributosList.getLength(); i++)
             {
-                
-                System.out.println(i+1+".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
+                reporte  += i+1+".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
                         "\nnombre: " + atributosList.item(i).getAttributes().getNamedItem("nombre").getNodeValue() + 
                         "\nTipo: " + atributosList.item(i).getAttributes().getNamedItem("Tipodevalor").getNodeValue() + 
-                        "\nValor: " + atributosList.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n");
-                System.out.println("Ya no pasa");
-    
-                //System.out.println("Variable local:" + atributosList.item(0).getChildNodes().item(0).getAttributes().getNamedItem("varialbeLocla").getNodeValue());
+                        "\nValor: " + atributosList.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n";
             }
         }else{
             System.out.println("No hay elementos");
         }
+        return reporte;
     }//fin del metodo obtenerElentosAtributos
     
     //metodo que obtiene los atributos del tag ComportamientoOjbeto
-    public static void obtenerElementosComportamientoObjeto(NodeList atributosList)
+    public static String obtenerElementosComportamientoObjeto(NodeList atributosList)
     {
+        String reporte = "";
         if(atributosList != null & atributosList.getLength() > 0)
         {
             for(int i = 0; i < atributosList.getLength(); i++)
             {
-                System.out.println(i+1+".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
+                reporte += "\n"+ (i+1) +".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
                         "\nnombre: " + atributosList.item(i).getAttributes().getNamedItem("nombre").getNodeValue() + 
-                        "\nTipo de retorno: " + atributosList.item(i).getAttributes().getNamedItem("tipoderetorno").getNodeValue() + "\n");
+                        "\nTipo de retorno: " + atributosList.item(i).getAttributes().getNamedItem("tipoderetorno").getNodeValue() + "\n";
                 
                 //System.out.println(atributosList.item(i).getChildNodes().item(i));
-                obtenerElmentosVariablesLocales(atributosList.item(i).getChildNodes() , atributosList.item(i).getChildNodes().getLength());
+                reporte += obtenerElmentosVariablesLocales(atributosList.item(i).getChildNodes() , atributosList.item(i).getChildNodes().getLength());
                 
                 //System.out.println("Variable local:" + atributosList.item(0).getChildNodes().item(1).getAttributes().getNamedItem("Valor").getNodeValue());
             }
         }else{
             System.out.println("No hay elementos");
         }
+        return reporte;
     }//fin del metodo obtenerElentosAtributos
     
-    public static void obtenerElmentosVariablesLocales(NodeList variable, int numeroVariables)
+    public static String obtenerElmentosVariablesLocales(NodeList variable, int numeroVariables)
     {
+        String reporte = "";
         //System.out.println("Variable local:" + listaVariable.item(0).getChildNodes().item(1).getAttributes().getNamedItem("NombreVariable").getNodeValue());
-        System.out.println("Variable local:" + variable.item(1).getAttributes().getNamedItem("NombreVariable").getNodeValue());
+        //System.out.println("Variable local:" + variable.item(5).getAttributes().getNamedItem("NombreVariable").getNodeValue());
+        //System.out.println("Tipo de dato:" + variable.item(5).getAttributes().getNamedItem("TipoDato").getNodeValue());
+        //System.out.println("Valor:" + variable.item(5).getAttributes().getNamedItem("Valor").getNodeValue());
+
         //System.out.println("Variable local:" + variable.item(2).getAttributes().getNamedItem("NombreVariable").getNodeValue());
         if(variable != null )
         {
-            for(int i = 1; i <= numeroVariables; i++)
-            {              
-                System.out.println("Nombre: " + variable.item(i).getAttributes().getNamedItem("NombreVariable").getNodeValue() + 
-                        "\nTipo de Dato: " + variable.item(i).getAttributes().getNamedItem("TipoDato").getNodeValue() +
-                        "\nValor: " + variable.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n");
-            }
+            for(int i = 1; i <= numeroVariables - 2; i=i+2)
+            {                
+                reporte += "\n\tNombre: " + variable.item(i).getAttributes().getNamedItem("NombreVariable").getNodeValue() + 
+                        "\n\tTipo de Dato: " + variable.item(i).getAttributes().getNamedItem("TipoDato").getNodeValue() +
+                        "\n\tValor: " + variable.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n";             
+            }    
         }else{
             System.out.println("No hay elementos");
         }
-    }
+        return reporte;
+    }// obtiene los atributos del elemento variableLocal
     
     
 }
