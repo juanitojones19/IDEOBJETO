@@ -19,6 +19,12 @@ public class pantallaReporteXML extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+    public pantallaReporteXML(java.awt.Dialog parent, boolean modal, String reporte) {
+        super(parent, modal);
+        initComponents();
+        textAreaReporte.setText(reporte);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,14 +36,14 @@ public class pantallaReporteXML extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textAreaReporte = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        textAreaReporte.setColumns(20);
+        textAreaReporte.setRows(5);
+        textAreaReporte.setEnabled(false);
+        jScrollPane1.setViewportView(textAreaReporte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +106,10 @@ public class pantallaReporteXML extends javax.swing.JDialog {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea textAreaReporte;
     // End of variables declaration//GEN-END:variables
 }
