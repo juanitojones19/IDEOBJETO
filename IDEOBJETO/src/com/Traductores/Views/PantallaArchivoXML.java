@@ -93,24 +93,24 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonGuardarXML)
-                    .addComponent(botonAnalizaToken))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(botonAnalizaToken, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonGuardarXML, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(80, 80, 80)
                 .addComponent(botonGuardarXML)
-                .addGap(28, 28, 28)
+                .addGap(41, 41, 41)
                 .addComponent(botonAnalizaToken)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,7 +133,9 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
 
     private void botonAnalizaTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnalizaTokenActionPerformed
         // TODO add your handling code here:
-        TokenController.analizarXML();
+        pantallaReporteXML pantallaReporte = new pantallaReporteXML(this, true, TokenController.generarReporteXML());
+        pantallaReporte.setTitle("Pantalla reporte");
+        pantallaReporte.setVisible(true);
     }//GEN-LAST:event_botonAnalizaTokenActionPerformed
 
     /**
