@@ -15,7 +15,8 @@ public class TokenController
 {
     public static void analizarXML()
     {
-        TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));
+        //TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));
+        TokenModel.obtenerElementsoDeXML(new File("caballo.xml"));//prueba
  
     }
     
