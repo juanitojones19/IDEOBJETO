@@ -16,7 +16,7 @@ public class TokenController
     public static String generarReporteXML()
     {
         //TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));
-        return TokenModel.obtenerElementsoDeXML(new File(ClassController.nombreClase()+".xml"));//prueba
+        return TokenModel.obtenerElementsoDeXML(new File("proyecto_IDEOBJ/"+ClassController.nombreClase()+".xml"));//prueba
  
     }
     
