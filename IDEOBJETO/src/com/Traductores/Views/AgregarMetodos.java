@@ -8,6 +8,7 @@ package com.Traductores.Views;
 
 import com.Traductores.Controllers.ClassController;
 import com.Traductores.Controllers.MetodosControllers;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -249,28 +250,8 @@ public class AgregarMetodos extends javax.swing.JDialog {
 
     private void botonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarActionPerformed
         // TODO add your handling code here:
-        /*
-         JFileChooser fc=new JFileChooser();
+        //se crea la carpeta
         
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter(".xml","xml");
-        fc.setFileFilter(filtro);
-
-        //Abrimos la ventana, guardamos la opcion seleccionada por el usuario
-        int seleccion=fc.showSaveDialog(this);
-
-        //Si el usuario, pincha en aceptar
-        if(seleccion == JFileChooser.APPROVE_OPTION)
-        {          
-            
-            //System.out.println(fc.getSelectedFile().toString());
-            //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
-            //botonAceptar.setEnabled(false);
-            
-            PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, fc.getSelectedFile().toString());
-            pantallaXML.setVisible(true);
-            
-        }
-        */
         ClassController.GuardarXML();
         botonTerminar.setEnabled(false);
         this.dispose();
