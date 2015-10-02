@@ -21,9 +21,9 @@ public class IDEOBJETO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //PantallaInicio pantallaIncialIDE = new PantallaInicio();
-        //pantallaIncialIDE.setVisible(true);
-        TokenController.analizarXML();
+        PantallaInicio pantallaIncialIDE = new PantallaInicio();
+        pantallaIncialIDE.setVisible(true);
+        //TokenController.analizarXML();
     }
     
 }
