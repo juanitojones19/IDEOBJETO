@@ -40,9 +40,9 @@ public class pantallaReporteXML extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        textAreaReporte.setEditable(false);
         textAreaReporte.setColumns(20);
         textAreaReporte.setRows(5);
-        textAreaReporte.setEnabled(false);
         jScrollPane1.setViewportView(textAreaReporte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
