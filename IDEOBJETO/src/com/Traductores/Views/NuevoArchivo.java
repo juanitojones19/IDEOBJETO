@@ -152,25 +152,11 @@ public class NuevoArchivo extends javax.swing.JDialog {
 
     private void botonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarActionPerformed
         // TODO add your handling code here:
-        JFileChooser fc=new JFileChooser();
-        
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter(".xml","xml");
-        fc.setFileFilter(filtro);
-
-        //Abrimos la ventana, guardamos la opcion seleccionada por el usuario
-        int seleccion=fc.showSaveDialog(this);
-
-        //Si el usuario, pincha en aceptar
-        if(seleccion == JFileChooser.APPROVE_OPTION)
-        {          
-            ClassController.GuardarXML();
-            botonTerminar.setEnabled(false);
-            //textAreaXML.setText(LectorArchivoXML.obtenerXML(fc.getSelectedFile().toString()+".xml"));
-            //botonAceptar.setEnabled(false);
-            this.dispose();
-            PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, fc.getSelectedFile().toString());
-            pantallaXML.setVisible(true);
-        }
+        ClassController.GuardarXML();
+        botonTerminar.setEnabled(false);
+        this.dispose();
+        PantallaArchivoXML pantallaXML = new PantallaArchivoXML(this, true, ClassController.nombreClase());
+        pantallaXML.setVisible(true);
     }//GEN-LAST:event_botonTerminarActionPerformed
 
     
