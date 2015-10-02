@@ -135,9 +135,12 @@ public class ArchivoXML
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             
             //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+            
+            File carpeta = new File("proyecto_IDEOBJ");
+            carpeta.mkdirs();
 
             DOMSource source = new DOMSource(doc);
-            File archivo = new File(clase.getAttribute("nombreClase")+".xml");
+            File archivo = new File(carpeta + "/" +clase.getAttribute("nombreClase")+".xml");
             StreamResult result = new StreamResult(archivo);
             transformer.transform(source, result);
             //StreamResult resultado = new StreamResult(System.out);
