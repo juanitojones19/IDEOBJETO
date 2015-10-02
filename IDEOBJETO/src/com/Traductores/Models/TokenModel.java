@@ -30,7 +30,6 @@ public class TokenModel
     //Metodo que obtiene los elementos de un xml por tags
     public static String obtenerElementsoDeXML(File archivoXML) 
     {
-        int totalElementos = 0;
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -39,13 +38,15 @@ public class TokenModel
             Element clase = doc.getDocumentElement();
             NodeList atributosList =  clase.getElementsByTagName("AtributoObjeto");
             
-            System.out.println("Numero de atributos: " + atributosList.getLength());
+            reporte += "Numero de atributos: " + atributosList.getLength() + "\n";
             reporte += obtenerElementosAtributosObjeto(atributosList);
+            System.out.println(reporte);
             
             NodeList metodosList = clase.getElementsByTagName("ComportamientoObjeto");
             
-            System.out.println("Numero de atributos en comportamiento de objetos: " + metodosList.getLength());
+            reporte += "Numero de comportamiento de objetos: " + metodosList.getLength() + "\n";
             reporte += obtenerElementosComportamientoObjeto(metodosList);
+            System.out.println(reporte);
             
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(TokenModel.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,12 +62,12 @@ public class TokenModel
     //metodo que obtiene los atributos del tag AtributoOjbeto
     public static String obtenerElementosAtributosObjeto(NodeList atributosList)
     {
-        String reporte = "";
+        String reporteAtributos = "";
         if(atributosList != null & atributosList.getLength() > 0)
         {
             for(int i = 0; i < atributosList.getLength(); i++)
             {
-                reporte  += i+1+".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
+                reporteAtributos  += i+1+".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
                         "\nnombre: " + atributosList.item(i).getAttributes().getNamedItem("nombre").getNodeValue() + 
                         "\nTipo: " + atributosList.item(i).getAttributes().getNamedItem("Tipodevalor").getNodeValue() + 
                         "\nValor: " + atributosList.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n";
@@ -74,35 +75,36 @@ public class TokenModel
         }else{
             System.out.println("No hay elementos");
         }
-        return reporte;
+        System.out.println(reporte);
+        return reporteAtributos;
     }//fin del metodo obtenerElentosAtributos
     
     //metodo que obtiene los atributos del tag ComportamientoOjbeto
     public static String obtenerElementosComportamientoObjeto(NodeList atributosList)
     {
-        String reporte = "";
+        String reporteMetodos = "";
         if(atributosList != null & atributosList.getLength() > 0)
         {
             for(int i = 0; i < atributosList.getLength(); i++)
             {
-                reporte += "\n"+ (i+1) +".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
+                reporteMetodos += "\n"+ (i+1) +".- Acceso: " + atributosList.item(i).getAttributes().getNamedItem("acceso").getNodeValue() +
                         "\nnombre: " + atributosList.item(i).getAttributes().getNamedItem("nombre").getNodeValue() + 
                         "\nTipo de retorno: " + atributosList.item(i).getAttributes().getNamedItem("tipoderetorno").getNodeValue() + "\n";
                 
                 //System.out.println(atributosList.item(i).getChildNodes().item(i));
-                reporte += obtenerElmentosVariablesLocales(atributosList.item(i).getChildNodes() , atributosList.item(i).getChildNodes().getLength());
+                reporteMetodos += obtenerElmentosVariablesLocales(atributosList.item(i).getChildNodes() , atributosList.item(i).getChildNodes().getLength());
                 
                 //System.out.println("Variable local:" + atributosList.item(0).getChildNodes().item(1).getAttributes().getNamedItem("Valor").getNodeValue());
             }
         }else{
             System.out.println("No hay elementos");
         }
-        return reporte;
+        return reporteMetodos;
     }//fin del metodo obtenerElentosAtributos
     
     public static String obtenerElmentosVariablesLocales(NodeList variable, int numeroVariables)
     {
-        String reporte = "";
+        String reporteVariablesLocales = "";
         //System.out.println("Variable local:" + listaVariable.item(0).getChildNodes().item(1).getAttributes().getNamedItem("NombreVariable").getNodeValue());
         //System.out.println("Variable local:" + variable.item(5).getAttributes().getNamedItem("NombreVariable").getNodeValue());
         //System.out.println("Tipo de dato:" + variable.item(5).getAttributes().getNamedItem("TipoDato").getNodeValue());
@@ -113,15 +115,13 @@ public class TokenModel
         {
             for(int i = 1; i <= numeroVariables - 2; i=i+2)
             {                
-                reporte += "\n\tNombre: " + variable.item(i).getAttributes().getNamedItem("NombreVariable").getNodeValue() + 
+                reporteVariablesLocales += "\n\tNombre: " + variable.item(i).getAttributes().getNamedItem("NombreVariable").getNodeValue() + 
                         "\n\tTipo de Dato: " + variable.item(i).getAttributes().getNamedItem("TipoDato").getNodeValue() +
                         "\n\tValor: " + variable.item(i).getAttributes().getNamedItem("Valor").getNodeValue() + "\n";             
             }    
         }else{
             System.out.println("No hay elementos");
         }
-        return reporte;
-    }// obtiene los atributos del elemento variableLocal
-    
-    
-}
+        return reporteVariablesLocales;
+    }// obtiene los atributos del elemento variableLocal 
+}// fin de la clase
