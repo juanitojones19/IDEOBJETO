@@ -48,7 +48,7 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     
     public void setTexArea(String ruta){
         //ArchivoXMLController.setArchivoXML(ruta);
-        textAreaXML.setText(ArchivoXMLController.setArchivoXML(ruta+".xml"));
+        textAreaXML.setText(ArchivoXMLController.setArchivoXML("proyecto_IDEOBJ/"+ruta+".xml"));
     }
 
     /**
