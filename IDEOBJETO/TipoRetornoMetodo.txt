@@ -1,0 +1,10 @@
+byte-Tipo entero
+short-Tipo entero
+int-Tipo entero
+long-Tipo entero
+float-Decimal simple
+double-Decimal doble
+char-Caracter simple
+boolean-Valor true o falso
+String-Cadena de caracteres
+void-no regresa nada

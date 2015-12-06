@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="juaniot">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="123" acceso="private" nombre="bebe"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="losoe" parametrobesos="besos" parametrotonto="tonto" tipoDatodebesos="String" tipoDatodetonto="String" tipoderetorno="void">
+            <varialbeLocla NombreVariable="loba" TipoDato="int" Valor="123"/>
+            <varialbeLocla NombreVariable="lobas" TipoDato="int" Valor="123"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

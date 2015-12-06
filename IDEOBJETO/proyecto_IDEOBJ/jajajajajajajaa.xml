@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="jajajajajajajaa">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="sadfad" tipoderetorno="int"/>
+    </ComportamientosObjetos>
+</MoldeObjeto>

@@ -1,0 +1,3 @@
+int-Palabra reservada para expresar enteros
+double-Palabra reservada para expresar numeros flotantes
+String-Palabra reservada para expresar cadena de caracteres

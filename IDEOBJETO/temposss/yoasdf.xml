@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="yoasdf">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="sdfasd" acceso="private" nombre="sadf"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="sdafas" parametrosadfas="sadfas" tipoDatodesadfas="String" tipoderetorno="int">
+            <varialbeLocla NombreVariable="asdfad" TipoDato="String" Valor="sdfa"/>
+        </ComportamientoObjeto><ComportamientoObjeto acceso="public" nombre="sdafas" parametrosadfas="sadfas" tipoDatodesadfas="String" tipoderetorno="int">
+            <varialbeLocla NombreVariable="asdfad" TipoDato="String" Valor="sdfa"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

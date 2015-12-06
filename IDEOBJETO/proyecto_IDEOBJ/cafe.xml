@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="cafe">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="noqueno" parametrosola="sola" tipoDatodesola="int" tipoderetorno="int">
+            <varialbeLocla NombreVariable="yolo" TipoDato="int" Valor="23"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

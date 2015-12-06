@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="lola">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="babosa" acceso="private" nombre="bestia"/>
+        <AtributoObjeto Tipodevalor="String" Valor="terco" acceso="private" nombre="bababa"/>
+        <AtributoObjeto Tipodevalor="String" Valor="loca" acceso="private" nombre="tontasresea"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

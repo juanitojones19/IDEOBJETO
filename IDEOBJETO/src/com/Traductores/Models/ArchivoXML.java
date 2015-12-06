@@ -6,6 +6,7 @@
 
 package com.Traductores.Models;
 
+import com.Traductores.Controllers.ClassController;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -136,13 +137,44 @@ public class ArchivoXML
             
             //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
             
-            File carpeta = new File("proyecto_IDEOBJ");
-            carpeta.mkdirs();
+            File carpeta;
+//
+            DOMSource source;
+            File archivo;
+            StreamResult result;
+//            transformer.transform(source, result);
+            
+            if(ClassController.getNombreProyecto() != null)
+            {
+                carpeta = new File(ClassController.getNombreProyecto());
+                carpeta.mkdirs();
 
-            DOMSource source = new DOMSource(doc);
-            File archivo = new File(carpeta + "/" +clase.getAttribute("nombreClase")+".xml");
-            StreamResult result = new StreamResult(archivo);
-            transformer.transform(source, result);
+                source = new DOMSource(doc);
+                archivo = new File(carpeta + "/" +clase.getAttribute("nombreClase")+".xml");
+                result = new StreamResult(archivo);
+                transformer.transform(source, result);
+            }else if(ClassController.obtenerRutaProyecto() != null){
+                
+                System.out.println("La ruta al abri el archivo: " + ClassController.obtenerRutaProyecto());
+                
+                source = new DOMSource(doc);
+                archivo = new File( ClassController.obtenerRutaProyecto() +clase.getAttribute("nombreClase")+".xml");
+                result = new StreamResult(archivo);
+                transformer.transform(source, result);
+                
+            }else{
+                System.out.println("Ruta de queso: " + ClassController.obtenerRutaProyecto());
+                
+                carpeta = new File("proyecto_IDEOBJ");
+                carpeta.mkdirs();
+
+                source = new DOMSource(doc);
+                archivo = new File(carpeta + "/" +clase.getAttribute("nombreClase")+".xml");
+                result = new StreamResult(archivo);
+                transformer.transform(source, result);
+            }
+            
+            
             //StreamResult resultado = new StreamResult(System.out);
             //transformer.transform(source, resultado);
             //System.out.println(result.getWriter().toString());

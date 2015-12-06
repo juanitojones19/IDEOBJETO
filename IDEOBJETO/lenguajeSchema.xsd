@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+           <!-- Define el tag para la clase-->
+         <xs:element name="MoldeObjeto">
+             <xs:complexType>
+                 <xs:sequence>
+                   <xs:element name="AtributosObjetos" type="LosAtributoObjeto" minOccurs="0" maxOccurs="unbounded"/>
+                   <xs:element name="ComportamientosObjetos" type="LosComportamientos" minOccurs="0" maxOccurs="unbounded"/>
+                 </xs:sequence>
+                 <xs:attribute name="nombreClase" type="xs:string" use="required"/>
+             </xs:complexType>
+         </xs:element>
+
+           <!--Definer los atributos de la calse-->
+           <xs:complexType name="LosAtributoObjeto">
+             <xs:sequence>
+               <xs:element name="AtributoObjeto" type="atributos" minOccurs="0" maxOccurs="unbounded"/>
+             </xs:sequence>
+           </xs:complexType>
+
+           <!--los atributos para el tag <AtributoObjeto> -->
+           <xs:complexType name="atributos">
+             <xs:attribute name="Tipodevalor" type="xs:string" use="required"/>
+             <xs:attribute name="Valor" type="xs:string"/>
+             <xs:attribute name="acceso" type="xs:string"/>
+             <xs:attribute name="nombre" type="xs:string" use="required"/>
+           </xs:complexType>
+
+           <!--Define los comportamientos de la clase-->
+           <xs:complexType name="LosComportamientos">
+             <xs:sequence>
+               <xs:element name="ComportamientoObjeto" type="comportamientos" minOccurs="0" maxOccurs="unbounded"/>
+             </xs:sequence>
+           </xs:complexType>
+
+
+           <!--los atributos para el tag <ComportamientoObjeto> -->
+           <xs:complexType name="comportamientos">
+             <xs:attribute name="acceso" type="xs:string" use="required"/>
+             <xs:attribute name="nombre" type="xs:string"/>
+             <xs:attribute name="tipoderetorno" type="xs:string"/>
+           </xs:complexType>
+
+
+
+
+
+</xs:schema>

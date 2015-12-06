@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="vavavava">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="toro" acceso="private" nombre="loqusea"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="compu2" tipoderetorno="String"/>
+        <ComportamientoObjeto acceso="public" nombre="compu" tipoderetorno="String"/>
+    </ComportamientosObjetos>
+</MoldeObjeto>

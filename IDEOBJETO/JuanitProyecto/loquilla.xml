@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="loquilla">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="34" acceso="private" nombre="si_sabes"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="besos" parametroteamo="teamo" tipoDatodeteamo="int" tipoderetorno="void">
+            <varialbeLocla NombreVariable="fuerza" TipoDato="double" Valor="45.45"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

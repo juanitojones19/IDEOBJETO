@@ -11,6 +11,7 @@ import com.Traductores.Views.AgregarAtributosVista;
 import com.Traductores.Views.NuevoArchivo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.tools.Diagnostic;
 
 /**
@@ -24,6 +25,12 @@ public class ClassController
     private NuevoArchivo vista;
     private final String mensajeErrorIdentificadorNoValido = "El nombre no es un identificador valido";
     private final String mensajeErrorPalabraReservada = "El nombre es una palabra reservada";
+    
+    private static String nombreProyecto = null;
+    
+    private static String rutaProeycto = null;
+    
+    private static File archivoProyecto = null;
     
     
     public ClassController(NuevoArchivo vista, String nombreClase)
@@ -66,6 +73,41 @@ public class ClassController
     public static String nombreClase()
     {
         return nombreClase;
+    }
+    
+    public static void setNombreProyecto(String nombre)
+    {
+        nombreProyecto = nombre;
+    }
+    
+    public static String getNombreProyecto()
+    {
+        return nombreProyecto;
+    }
+    
+    public static void rutaProyecto(File archivo)
+    {
+        rutaProeycto = archivo.getAbsolutePath();
+        archivoProyecto = archivo;
+    }
+    
+    public static String obtenerRutaProyecto()
+    {   
+        
+        String ruta = rutaProeycto;
+        
+        if(ruta != null)
+        {
+            //String ruta = archivo.getAbsolutePath();
+            String[] rutaArchivo = ruta.split(archivoProyecto.getName());
+            ruta = rutaArchivo[0];
+            System.out.println("Archivo: " + archivoProyecto);
+            System.out.println("la rauta: " + rutaArchivo[0]);
+            return ruta;
+        }else{
+            return null;
+        }     
+        
     }
     
 }

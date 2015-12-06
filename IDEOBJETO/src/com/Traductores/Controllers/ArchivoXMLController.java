@@ -8,10 +8,13 @@ package com.Traductores.Controllers;
 
 import com.Traductores.Models.ArchivoXML;
 import com.Traductores.Models.LectorArchivo;
+import com.Traductores.Models.XMLValidator;
 import com.Traductores.Views.PantallaArchivoXML;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -46,6 +49,7 @@ public class ArchivoXMLController
     public static void GuardarArchivo(String contenidoXML)
         throws SAXException, ParserConfigurationException, IOException, TransformerConfigurationException, TransformerException {
         
+        //XMLValidator validador = new XMLValidator(contenidoXML, contenidoXML);
 
         // Parse the given input
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -57,6 +61,7 @@ public class ArchivoXMLController
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
         
+        
         //se crea la carpeta
         File carpeta = new File("proyecto_IDEOBJ");
         carpeta.mkdirs();
@@ -64,6 +69,7 @@ public class ArchivoXMLController
 
         StreamResult result =  new StreamResult(new File(carpeta.getPath()+"/"+ClassController.nombreClase()+".xml"));
         transformer.transform(source, result);
+        
     }
     
 }

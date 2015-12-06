@@ -6,11 +6,31 @@
 
 package com.Traductores.Views;
 
+import com.Traductores.Controllers.ArchivosController;
+import com.Traductores.Controllers.ClassController;
+import com.Traductores.Models.LectorArchivo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.JList;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.KeyStroke;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author JC
  */
 public class PantallaInicio extends javax.swing.JFrame {
+    
+    JFileChooser jf;
 
     /**
      * Creates new form PantallaInicio
@@ -33,11 +53,17 @@ public class PantallaInicio extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemNuevoProyecto = new javax.swing.JMenuItem();
         menuItemNuevoArchivo = new javax.swing.JMenuItem();
         menuItemAbriProyecto = new javax.swing.JMenuItem();
+        copiarArchivoMenu = new javax.swing.JMenuItem();
+        respaldoArchivoMenu = new javax.swing.JMenuItem();
+        menuItemImportar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
@@ -55,9 +81,16 @@ public class PantallaInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane2.setViewportView(jTree1);
+
         jMenu1.setText("File");
 
         menuItemNuevoProyecto.setText("Nuevo Proyecto");
+        menuItemNuevoProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemNuevoProyectoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemNuevoProyecto);
 
         menuItemNuevoArchivo.setText("Nuevo Archivo");
@@ -69,7 +102,36 @@ public class PantallaInicio extends javax.swing.JFrame {
         jMenu1.add(menuItemNuevoArchivo);
 
         menuItemAbriProyecto.setText("Abrir Proyecto");
+        menuItemAbriProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAbriProyectoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemAbriProyecto);
+
+        copiarArchivoMenu.setText("Copiar Archivos");
+        copiarArchivoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copiarArchivoMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(copiarArchivoMenu);
+
+        respaldoArchivoMenu.setText("Respaldo Archivos");
+        respaldoArchivoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                respaldoArchivoMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(respaldoArchivoMenu);
+
+        menuItemImportar.setText("Importar");
+        menuItemImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemImportarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemImportar);
 
         jMenuBar1.add(jMenu1);
 
@@ -82,22 +144,114 @@ public class PantallaInicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Cuando se hace clic en el submenu NuevoArchivo
     private void menuItemNuevoArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNuevoArchivoActionPerformed
         // TODO add your handling code here:
         NuevoArchivo pantallaNuevoArchivo = new NuevoArchivo(this, true);
         pantallaNuevoArchivo.setVisible(true);
     }//GEN-LAST:event_menuItemNuevoArchivoActionPerformed
 
+    //cuanod se hace clic en el sub menu Nuevo Proyecto
+    private void menuItemNuevoProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNuevoProyectoActionPerformed
+        // TODO add your handling code here:
+        
+        AgregarProyectoVista vistaProyecto = new AgregarProyectoVista(this, rootPaneCheckingEnabled);
+        vistaProyecto.setVisible(true);
+    }//GEN-LAST:event_menuItemNuevoProyectoActionPerformed
+
+    //para Abrir un proyecto existente
+    private void menuItemAbriProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAbriProyectoActionPerformed
+        // TODO add your handling code here:
+        //JFileChooser chooser = new JFileChooser();
+        JFileChooser abriProyecto = new JFileChooser(System.getProperty("user.dir"));
+        abriProyecto.showDialog(this, "Abrir");
+        
+        File archivo = abriProyecto.getSelectedFile();
+        ClassController.rutaProyecto(archivo);
+        
+        abriProyecto.setVisible(false);
+
+        NuevoArchivo nuevoArchivo = new NuevoArchivo(this, true);
+        nuevoArchivo.setVisible(true);
+
+        //System.out.println("N¿Valor: " + JFileChooser.APPROVE_SELECTION);
+        
+        
+        
+        
+        
+        
+        //jf.showOpenDialog(this);
+
+    }//GEN-LAST:event_menuItemAbriProyectoActionPerformed
+
+    private void copiarArchivoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarArchivoMenuActionPerformed
+        // TODO add your handling code here:
+        JFileChooser copiarFileChooser = new JFileChooser(System.getProperty("user.dir"));
+        copiarFileChooser.showDialog(this, "Copiar");
+        File archivoACopiar = copiarFileChooser.getSelectedFile();
+        copiarArchivo(archivoACopiar);
+        //copiarFileChooser.showDialog(this, "Copiar");
+       
+    }//GEN-LAST:event_copiarArchivoMenuActionPerformed
+
+    private void respaldoArchivoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respaldoArchivoMenuActionPerformed
+        // TODO add your handling code here:
+        JFileChooser respaldoChooser = new JFileChooser(System.getProperty("user.dir"));
+        respaldoChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+        respaldoChooser.showDialog(this, "Respaldar");
+        System.out.println("Working Directory = " +
+              System.getProperty("user.dir"));
+        
+        File archivoARespaldar = respaldoChooser.getSelectedFile();
+        ArchivosController.respaldarArchivo(archivoARespaldar);
+    }//GEN-LAST:event_respaldoArchivoMenuActionPerformed
+
+    private void menuItemImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemImportarActionPerformed
+        // TODO add your handling code here:
+        JFileChooser copiarFileChooser = new JFileChooser(System.getProperty("user.dir"));
+        copiarFileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+        copiarFileChooser.showDialog(this, "Importar");
+        File archivoACopiar = copiarFileChooser.getSelectedFile();
+        copiarArchivo(archivoACopiar);
+        
+    }//GEN-LAST:event_menuItemImportarActionPerformed
+    public void copiarArchivo(File archivo)
+    {
+        JFileChooser guardarFileChooser = new JFileChooser(System.getProperty("user.dir"));
+        guardarFileChooser.showSaveDialog(this);
+        File arhciPrueba = guardarFileChooser.getSelectedFile();
+        ///System.out.println("SE copio: " + guardarFileChooser.getCurrentDirectory());
+        //System.out.println("SE copio: " + arhciPrueba.getName());
+        try{
+            FileWriter  save = new FileWriter(arhciPrueba+".xml");
+            save.write(LectorArchivo.obtenerTexto(archivo.getAbsolutePath()));
+            save.close();
+            JOptionPane.showMessageDialog(null,
+                 "El archivo se a guardado Exitosamente",
+                     "Información",JOptionPane.INFORMATION_MESSAGE);
+        }catch(IOException error){
+            JOptionPane.showMessageDialog(null,
+                "Su archivo no se ha guardado",
+                "Advertencia",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+
+// fin de abrir proyecto
     /**
      * @param args the command line arguments
      */
@@ -134,6 +288,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem copiarArchivoMenu;
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -141,9 +296,14 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTree jTree1;
     private javax.swing.JMenuItem menuItemAbriProyecto;
+    private javax.swing.JMenuItem menuItemImportar;
     private javax.swing.JMenuItem menuItemNuevoArchivo;
     private javax.swing.JMenuItem menuItemNuevoProyecto;
+    private javax.swing.JMenuItem respaldoArchivoMenu;
     // End of variables declaration//GEN-END:variables
 }

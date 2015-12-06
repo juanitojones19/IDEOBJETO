@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="MiXSD">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="loquese" acceso="private" nombre="hola"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="miMetodo" tipoderetorno="String"/>
+    </ComportamientosObjetos>
+</MoldeObjeto>

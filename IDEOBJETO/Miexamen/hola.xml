@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="hola">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="23" acceso="private" nombre="adfa"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="metodo" parametrohol2="hol2" tipoDatodehol2="int" tipoderetorno="String">
+            <varialbeLocla NombreVariable="nose" TipoDato="int" Valor="23"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

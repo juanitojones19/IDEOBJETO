@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="holapreubaeditable">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="loca" acceso="private" nombre="ese"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="cierto" parametroyo="yo" tipoDatodeyo="int" tipoderetorno="boolean">
+            <varialbeLocla NombreVariable="quehonda" TipoDato="String" Valor="vibe"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

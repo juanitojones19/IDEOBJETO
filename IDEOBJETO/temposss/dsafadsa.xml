@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="dsafadsa">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="234" acceso="private" nombre="dafad"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

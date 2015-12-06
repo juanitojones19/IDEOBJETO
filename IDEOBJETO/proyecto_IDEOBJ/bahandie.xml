@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="bahandie">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="1231231" acceso="private" nombre="nonop"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

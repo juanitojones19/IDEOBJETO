@@ -23,9 +23,17 @@ public class NuevoArchivo extends javax.swing.JDialog {
     /**
      * Creates new form NuevoArchivo
      */
+    private String nombreProyecto;
+    
     public NuevoArchivo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public NuevoArchivo(java.awt.Dialog parent, boolean modal, String nombreProyecto){
+        super(parent, modal);
+        initComponents();
+        this.nombreProyecto = nombreProyecto;
     }
 
     /**

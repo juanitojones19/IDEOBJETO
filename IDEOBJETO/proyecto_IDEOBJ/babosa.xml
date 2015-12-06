@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="babosa">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12312312312" acceso="private" nombre="tarada"/>
+        <AtributoObjeto Tipodevalor="String" Valor="juanc" acceso="private" nombre="nombre"/>
+        <AtributoObjeto Tipodevalor="int" Valor="true" acceso="private" nombre="loes"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

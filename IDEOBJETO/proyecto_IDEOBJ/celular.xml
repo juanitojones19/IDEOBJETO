@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="celular">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="Samsung" acceso="private" nombre="marca"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="juantio" parametrolocuaz="locuaz" tipoDatodelocuaz="String" tipoderetorno="String">
+            <varialbeLocla NombreVariable="slovuaz" TipoDato="boolean" Valor="true"/>
+            <varialbeLocla NombreVariable="loba" TipoDato="boolean" Valor="false"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

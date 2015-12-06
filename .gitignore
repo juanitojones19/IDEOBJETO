@@ -33,3 +33,5 @@ devDb.trace.db
 
 #Archivos .DS_Store
 .DS_Store
+/IDEOBJETO/nbproject/private/
+/IDEOBJETO/build/

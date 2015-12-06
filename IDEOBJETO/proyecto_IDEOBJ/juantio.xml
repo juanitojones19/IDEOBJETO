@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="juantio">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="lolo" tipoderetorno="int">
+            <varialbeLocla NombreVariable="casio" TipoDato="int" Valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

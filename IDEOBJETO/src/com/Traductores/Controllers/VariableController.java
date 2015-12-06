@@ -39,6 +39,7 @@ public class VariableController {
         {
             vista.mostarMensajeError("Exito");
             VariableModel.agregarVariable(this.acceso, nombreVariable, tipoDato, valor);
+            vista.dispose();
         }else{
             vista.mostarMensajeError(VariableModel.obtenerMensaje());
         }

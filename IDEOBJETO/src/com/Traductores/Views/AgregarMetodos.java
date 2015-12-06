@@ -22,6 +22,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
     /**
      * Creates new form AgregarMetodos
      */
+    
     public AgregarMetodos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

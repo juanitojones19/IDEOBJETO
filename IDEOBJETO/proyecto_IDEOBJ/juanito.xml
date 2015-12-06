@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="juanito">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="123" acceso="private" nombre="vestis"/>
+        <AtributoObjeto Tipodevalor="String" Valor="1123123" acceso="private" nombre="vestistontao"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="caballo">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="movimiento" tipoderetorno="int">
+            <varialbeLocla NombreVariable="peso" TipoDato="int" Valor="100"/>
+            <varialbeLocla NombreVariable="velocidad" TipoDato="int" Valor="1000"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

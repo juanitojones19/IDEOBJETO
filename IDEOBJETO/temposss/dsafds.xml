@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="dsafds">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="31" acceso="private" nombre="adsfa"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="asdfa" tipoderetorno="String"/>
+    </ComportamientosObjetos>
+</MoldeObjeto>

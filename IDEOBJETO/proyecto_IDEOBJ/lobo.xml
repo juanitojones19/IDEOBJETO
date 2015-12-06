@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="lobo">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="quePAso" parametroslos="slos" tipoDatodeslos="int" tipoderetorno="String">
+            <varialbeLocla NombreVariable="nombre" TipoDato="String" Valor="jua"/>
+            <varialbeLocla NombreVariable="peso" TipoDato="int" Valor="123"/>
+            <varialbeLocla NombreVariable="muerto" TipoDato="boolean" Valor="true"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

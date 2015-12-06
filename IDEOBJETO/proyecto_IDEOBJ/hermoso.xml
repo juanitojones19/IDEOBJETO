@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="hermoso">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="variable" acceso="private" nombre="loquiila"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="correr" parametronombre="nombre" tipoDatodenombre="String" tipoderetorno="String">
+            <varialbeLocla NombreVariable="total" TipoDato="String" Valor="123"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="Telefonoe">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="sans" acceso="private" nombre="maca"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="tloo" parametrolocauza="locauza" tipoDatodelocauza="int" tipoderetorno="int">
+            <varialbeLocla NombreVariable="basos" TipoDato="int" Valor="123"/>
+            <varialbeLocla NombreVariable="lobosas" TipoDato="int" Valor="123"/>
+        </ComportamientoObjeto>
+        <ComportamientoObjeto acceso="public" nombre="valor" parametroloba="loba" tipoDatodeloba="String" tipoderetorno="boolean">
+            <varialbeLocla NombreVariable="nombre" TipoDato="String" Valor="sei"/>
+            <varialbeLocla NombreVariable="ababababab" TipoDato="String" Valor="nop"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

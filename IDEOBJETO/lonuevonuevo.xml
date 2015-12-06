@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="lonuevonuevo">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="dae"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos/>
+</MoldeObjeto>

@@ -7,8 +7,14 @@
 package com.Traductores.Views;
 
 import com.Traductores.Controllers.ArchivoXMLController;
+import com.Traductores.Controllers.ClassController;
 import com.Traductores.Controllers.TokenController;
+import com.Traductores.Models.EditarXML;
+import static com.Traductores.Models.EditarXML.buscarTagCierreApertura;
+import static com.Traductores.Models.EditarXML.buscarTagEditable;
+import com.Traductores.Models.XMLValidator;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +38,7 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     /**
      * Creates new form PantallaArchivoXML
      */
-
+    private String texto = "";
     private String ruta;
     
     public PantallaArchivoXML(java.awt.Frame parent, boolean modal) {
@@ -48,7 +54,16 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     
     public void setTexArea(String ruta){
         //ArchivoXMLController.setArchivoXML(ruta);
-        textAreaXML.setText(ArchivoXMLController.setArchivoXML("proyecto_IDEOBJ/"+ruta+".xml"));
+        
+        if(ClassController.getNombreProyecto() != null)
+        {
+            textAreaXML.setText(ArchivoXMLController.setArchivoXML(ClassController.getNombreProyecto()+"/"+ruta+".xml"));
+        }else if(ClassController.obtenerRutaProyecto() != null){
+            textAreaXML.setText(ArchivoXMLController.setArchivoXML(ClassController.obtenerRutaProyecto()+"/"+ruta+".xml"));
+        }
+        else{
+            textAreaXML.setText(ArchivoXMLController.setArchivoXML("proyecto_IDEOBJ/"+ruta+".xml"));
+        }
     }
 
     /**
@@ -64,15 +79,17 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
         textAreaXML = new javax.swing.JTextArea();
         botonGuardarXML = new javax.swing.JButton();
         botonAnalizaToken = new javax.swing.JButton();
+        editarBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        textAreaXML.setEditable(false);
         textAreaXML.setColumns(20);
         textAreaXML.setRows(5);
         jScrollPane1.setViewportView(textAreaXML);
 
-        botonGuardarXML.setText("Guardar");
+        botonGuardarXML.setText("Validar");
         botonGuardarXML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGuardarXMLActionPerformed(evt);
@@ -86,6 +103,13 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
             }
         });
 
+        editarBoton.setText("Editar");
+        editarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,10 +117,12 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAnalizaToken, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonGuardarXML, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(botonGuardarXML, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(editarBoton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonAnalizaToken, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -110,6 +136,8 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
                 .addComponent(botonGuardarXML)
                 .addGap(41, 41, 41)
                 .addComponent(botonAnalizaToken)
+                .addGap(40, 40, 40)
+                .addComponent(editarBoton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -118,7 +146,49 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
 
     private void botonGuardarXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarXMLActionPerformed
         try {
-            ArchivoXMLController.GuardarArchivo(textAreaXML.getText());
+            
+            String texto = textAreaXML.getText();
+            
+            //se crea la carpeta
+            File carpeta = new File("temposss");
+            carpeta.mkdirs();
+            try
+            {
+                //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+                File archivo=new File(carpeta.getPath()+"/"+ClassController.nombreClase()+".xml");
+
+                //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+                FileWriter escribir=new FileWriter(archivo,true);
+
+                //Escribimos en el archivo con el metodo write 
+                escribir.write(texto);
+
+                //Cerramos la conexion
+                escribir.close();
+            }
+
+            //Si existe un problema al escribir cae aqui
+            catch(Exception e)
+            {
+                System.out.println("Error al escribir");
+            }
+            
+            XMLValidator validador = 
+            new XMLValidator("lenguajeSchema.xsd",carpeta.getPath()+"/"+ClassController.nombreClase()+".xml");
+
+           System.out.println
+           ("706.xml es valido de acuerdo a cfdv32.xsd? "
+                   + validador.isValido()); 
+
+           if(!validador.isValido()){
+               System.out.println(validador.getErrorMSg());
+               ArchivoXMLController.GuardarArchivo(textAreaXML.getText());
+           }
+      
+            
+            
+
+            
         } catch (SAXException ex) {
             Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
@@ -138,6 +208,31 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
         pantallaReporte.setVisible(true);
     }//GEN-LAST:event_botonAnalizaTokenActionPerformed
 
+    private void editarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarBotonActionPerformed
+        // TODO add your handling code here:
+        int posicion = textAreaXML.getCaretPosition();
+        System.out.println("La posicion: " + posicion);
+        if(!buscarTagCierreApertura(posicion, textAreaXML.getText()))
+        {
+            System.out.println("es editable carajo: " + posicion);
+            //System.out.println("No esotoy dentro de un tag");
+            if(buscarTagEditable(posicion, textAreaXML.getText()))
+            {
+                System.out.println("es editable carajo: " + posicion);
+                textAreaXML.setEditable(true);
+                caretDialogo agregarDialog = new caretDialogo(this, true, this);
+                agregarDialog.setVisible(true);
+                textAreaXML.insert(texto, posicion);
+                textAreaXML.setEditable(false);
+            }
+            
+        }
+    }//GEN-LAST:event_editarBotonActionPerformed
+
+    public void setTextCaret(String texto)
+    {
+        this.texto = texto;
+    }
     /**
      * @param args the command line arguments
      */
@@ -183,6 +278,7 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAnalizaToken;
     private javax.swing.JButton botonGuardarXML;
+    private javax.swing.JButton editarBoton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textAreaXML;
     // End of variables declaration//GEN-END:variables

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="Programa">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="loamadre" parametrojuanito="juanito" parametrolotrianza="lotrianza" tipoDatodejuanito="String" tipoDatodelotrianza="boolean" tipoderetorno="int">
+            <varialbeLocla NombreVariable="loboboa" TipoDato="boolean" Valor="23423"/>
+        </ComportamientoObjeto>
+        <ComportamientoObjeto acceso="public" nombre="acdafada" parametroadfadfa="adfadfa" tipoDatodeadfadfa="String" tipoderetorno="int">
+            <varialbeLocla NombreVariable="fadfaqeq" TipoDato="int" Valor="34212341"/>
+            <varialbeLocla NombreVariable="fadfa" TipoDato="boolean" Valor="34212341"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

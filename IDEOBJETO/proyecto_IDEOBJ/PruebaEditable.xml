@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="PruebaEditable">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="String" Valor="hola" acceso="private" nombre="hola"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="holaquehace" parametroloca="loca" tipoDatodeloca="int" tipoderetorno="void">
+            <varialbeLocla NombreVariable="gio" TipoDato="boolean" Valor="false"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

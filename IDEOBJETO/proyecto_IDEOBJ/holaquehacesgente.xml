@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="holaquehacesgente">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="yolo" parametrolocas="locas" tipoDatodelocas="double" tipoderetorno="int">
+            <varialbeLocla NombreVariable="si" TipoDato="int" Valor="34"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

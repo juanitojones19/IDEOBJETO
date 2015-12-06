@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="dxafsd">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="hos" parametrose="se" tipoDatodese="int" tipoderetorno="int">
+            <varialbeLocla NombreVariable="sdaf" TipoDato="String" Valor="234"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

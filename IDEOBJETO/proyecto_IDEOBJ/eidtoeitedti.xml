@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="eidtoeitedti">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="quepaso" parametrolocas="locas" tipoDatodelocas="double" tipoderetorno="int">
+            <varialbeLocla NombreVariable="no" TipoDato="int" Valor="34"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>
