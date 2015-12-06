@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="elquequiera">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="holaloca" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="situ"/>
+                <Parametro TipoDato="int" identificador="yolo"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="loba" valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

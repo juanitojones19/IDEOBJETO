@@ -43,11 +43,43 @@ and open the template in the editor.
            </xs:complexType>
 
 
-           <!--los atributos para el tag <ComportamientoObjeto> -->
+           <!--los atributos para el tag <ComportamientoObjeto> y los elemetos dentro del tag -->
            <xs:complexType name="comportamientos">
+             <xs:sequence>
+               <xs:element name="ParametrosComportamiento" type="LosParamentro" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element name="VariableLocal" type="variableLocal" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element name="cicloFor" type="ciclo" minOccurs="0" maxOccurs="unbounded"/>
+             </xs:sequence>
              <xs:attribute name="acceso" type="xs:string" use="required"/>
              <xs:attribute name="nombre" type="xs:string"/>
              <xs:attribute name="tipoderetorno" type="xs:string"/>
+           </xs:complexType>
+
+           <!--Define los parametros para el los compormatiento objetos -->
+           <xs:complexType name="LosParamentro">
+             <xs:sequence>
+               <xs:element name="Parametro" type="parametro" minOccurs="0" maxOccurs="unbounded"/>
+             </xs:sequence>
+           </xs:complexType>
+
+           <!--Define los atributos para el tago <Parametro> -->
+           <xs:complexType name="parametro">
+             <xs:attribute name="TipoDato" type="xs:string" use="required"/>
+             <xs:attribute name="identificador" type="xs:string"/>
+           </xs:complexType>
+
+           <!--Define los atributos para el tag <VariableLocal>-->
+           <xs:complexType name="variableLocal">
+             <xs:attribute name="TipoDato" type="xs:string" use="required"/>
+             <xs:attribute name="nombre" type="xs:string"/>
+             <xs:attribute name="valor" type="xs:string"/>
+           </xs:complexType>
+
+           <!--Define los atributos para el tag <cicloFor>-->
+           <xs:complexType name="ciclo">
+             <xs:attribute name="inicio" type="xs:string" use="required"/>
+             <xs:attribute name="fin" type="xs:string"/>
+             <xs:attribute name="incremento" type="xs:string"/>
            </xs:complexType>
 
 

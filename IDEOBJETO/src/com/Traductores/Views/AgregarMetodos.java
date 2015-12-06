@@ -57,13 +57,14 @@ public class AgregarMetodos extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         comboBoxAcceso = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        textFieldTipoDato = new javax.swing.JTextField();
+        textFieldTipoDatoParametro = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         textFieldNmbreVariableLocal = new javax.swing.JTextField();
         textFieldTipoDatoVariableLocal = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         textFieldValorVariableLocal = new javax.swing.JTextField();
+        botonTerminarParametros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,6 +115,8 @@ public class AgregarMetodos extends javax.swing.JDialog {
             }
         });
 
+        texFieldNombreParametro.setEditable(false);
+
         jLabel4.setText("Nombre del parametro:");
 
         jLabel5.setText("Tipo de retorno:");
@@ -124,11 +127,27 @@ public class AgregarMetodos extends javax.swing.JDialog {
 
         jLabel7.setText("Tipo de Dato:");
 
+        textFieldTipoDatoParametro.setEditable(false);
+
         jLabel8.setText("Nombre de la variable:");
+
+        textFieldNmbreVariableLocal.setEditable(false);
+
+        textFieldTipoDatoVariableLocal.setEditable(false);
 
         jLabel9.setText("Tipo de dato:");
 
         jLabel10.setText("Valor:");
+
+        textFieldValorVariableLocal.setEditable(false);
+
+        botonTerminarParametros.setText("Terminar");
+        botonTerminarParametros.setEnabled(false);
+        botonTerminarParametros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTerminarParametrosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,17 +180,19 @@ public class AgregarMetodos extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(comboBoxAcceso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(texFieldNombreMetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(textFieldTipoDato, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textFieldTipoDatoParametro, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(texFieldNombreParametro)
                     .addComponent(textFieldNmbreVariableLocal)
                     .addComponent(textFieldTipoDatoVariableLocal)
                     .addComponent(textFieldValorVariableLocal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonAgregarVariablesLocales)
                     .addComponent(botonAgregarParametros)
-                    .addComponent(botonNombreMetodo)
-                    .addComponent(botonAgregarVariablesLocales))
-                .addGap(164, 164, 164))
+                    .addComponent(botonNombreMetodo))
+                .addGap(18, 18, 18)
+                .addComponent(botonTerminarParametros)
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,17 +216,21 @@ public class AgregarMetodos extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(texFieldNombreParametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonAgregarParametros))
+                            .addComponent(botonAgregarParametros)
+                            .addComponent(botonTerminarParametros))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(textFieldTipoDato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textFieldNmbreVariableLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(botonAgregarVariablesLocales))
-                            .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(textFieldTipoDatoParametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(textFieldNmbreVariableLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botonAgregarVariablesLocales)
+                                .addGap(2, 2, 2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9))
                     .addComponent(textFieldTipoDatoVariableLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,7 +238,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(textFieldValorVariableLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAgregarNuevoMetodo)
                     .addComponent(botonTerminar)
@@ -275,6 +300,17 @@ public class AgregarMetodos extends javax.swing.JDialog {
         MetodosControllers.borrarListaVariablesLocales();
     }//GEN-LAST:event_BotonAgregarNuevoMetodoActionPerformed
 
+    private void botonTerminarParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarParametrosActionPerformed
+        
+        //deshabilita los campos para los parametros
+        getTexFieldNombreParametro().setEditable(false);
+        getTexFieldTipoDato().setEditable(false);
+        //habilita los campos para las variables locales
+        getTexFieldVariableLocal().setEditable(true);
+        getTexFieldTipoDatoVariableLocal().setEditable(true);
+        getTexFieldValorVariableLocal().setEditable(true);
+    }//GEN-LAST:event_botonTerminarParametrosActionPerformed
+
     public void mensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
@@ -327,6 +363,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonNombreMetodo;
     private javax.swing.JButton botonTerminar;
+    private javax.swing.JButton botonTerminarParametros;
     private javax.swing.JComboBox comboBoxAcceso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -339,7 +376,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
     private javax.swing.JTextField texFieldNombreMetodo;
     private javax.swing.JTextField texFieldNombreParametro;
     private javax.swing.JTextField textFieldNmbreVariableLocal;
-    private javax.swing.JTextField textFieldTipoDato;
+    private javax.swing.JTextField textFieldTipoDatoParametro;
     private javax.swing.JTextField textFieldTipoDatoVariableLocal;
     private javax.swing.JTextField textFieldTipoRetorno;
     private javax.swing.JTextField textFieldValorVariableLocal;
@@ -403,7 +440,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
     }
      
      public javax.swing.JTextField getTexFieldTipoDato() {
-        return textFieldTipoDato;
+        return textFieldTipoDatoParametro;
     }
      
     public javax.swing.JTextField getTexFieldTipoDatoVariableLocal() {
@@ -416,6 +453,14 @@ public class AgregarMetodos extends javax.swing.JDialog {
     
     public javax.swing.JTextField getTexFieldValorVariableLocal() {
         return textFieldValorVariableLocal;
+    }
+    
+    public javax.swing.JButton getBotonTerminarParametros() {
+        return botonTerminarParametros;
+    }
+    
+    public javax.swing.JComboBox getComboBoxTipoAcceso(){
+        return comboBoxAcceso;
     }
     
 }

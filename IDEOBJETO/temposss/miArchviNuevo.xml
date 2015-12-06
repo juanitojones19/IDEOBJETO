@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="miArchviNuevo">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="v1"/>
+        <AtributoObjeto Tipodevalor="int" Valor="13" acceso="private" nombre="v2"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="parametro1" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="double" identificador="nombre"/>
+                <Parametro TipoDato="double" identificador="apellido"/>
+            </ParametrosComportamiento>
+            <varialbeLocal NombreVariable="hola" TipoDato="int" Valor="12"/>
+            <varialbeLocal NombreVariable="adios" TipoDato="double" Valor="145"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

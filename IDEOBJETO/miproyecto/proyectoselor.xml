@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="proyectoselor">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="loca"/>
+        <AtributoObjeto Tipodevalor="int" Valor="23" acceso="private" nombre="de"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="metdo1" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="yo"/>
+                <Parametro TipoDato="int" identificador="tu"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="loca" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="sana" valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

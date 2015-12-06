@@ -54,19 +54,21 @@
                           <Component id="texFieldNombreMetodo" min="-2" pref="166" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="textFieldTipoDato" alignment="1" max="32767" attributes="0"/>
+                  <Component id="textFieldTipoDatoParametro" alignment="1" max="32767" attributes="0"/>
                   <Component id="texFieldNombreParametro" alignment="0" max="32767" attributes="0"/>
                   <Component id="textFieldNmbreVariableLocal" alignment="0" max="32767" attributes="0"/>
                   <Component id="textFieldTipoDatoVariableLocal" alignment="0" max="32767" attributes="0"/>
                   <Component id="textFieldValorVariableLocal" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="227" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonAgregarParametros" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonNombreMetodo" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="botonAgregarVariablesLocales" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonAgregarParametros" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonNombreMetodo" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="botonTerminarParametros" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="231" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,19 +98,25 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="texFieldNombreParametro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonAgregarParametros" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonTerminarParametros" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textFieldTipoDato" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldNmbreVariableLocal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botonAgregarVariablesLocales" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textFieldTipoDatoParametro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="textFieldNmbreVariableLocal" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="botonAgregarVariablesLocales" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -120,7 +128,7 @@
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textFieldValorVariableLocal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="161" max="32767" attributes="0"/>
+              <EmptySpace pref="164" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BotonAgregarNuevoMetodo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonTerminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -191,6 +199,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="texFieldNombreParametro">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -224,7 +235,10 @@
         <Property name="text" type="java.lang.String" value="Tipo de Dato:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textFieldTipoDato">
+    <Component class="javax.swing.JTextField" name="textFieldTipoDatoParametro">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
@@ -232,8 +246,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldNmbreVariableLocal">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldTipoDatoVariableLocal">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -246,6 +266,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldValorVariableLocal">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonTerminarParametros">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Terminar"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTerminarParametrosActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

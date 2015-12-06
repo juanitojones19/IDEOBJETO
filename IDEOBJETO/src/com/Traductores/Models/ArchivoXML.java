@@ -33,8 +33,10 @@ public class ArchivoXML
     private static Element clase;
     private static Element AtributoObjeto;
     private static Element AccionesObjetos;
+    private static Element ParametrosComportamiento;
     private static Element variable;
     private static Element metodo;
+    private static Element parametro;
     private static Element variableLocal;
     private static String contendioXML;
     public ArchivoXML()
@@ -59,6 +61,7 @@ public class ArchivoXML
             //documento = doc.createElement("Documento");
             AtributoObjeto = doc.createElement("AtributosObjetos");
             AccionesObjetos = doc.createElement("ComportamientosObjetos");
+            ParametrosComportamiento = doc.createElement("ParametrosComportamiento");
         }catch(ParserConfigurationException ex){
             ex.printStackTrace();
         }
@@ -99,17 +102,21 @@ public class ArchivoXML
     
     public static void atributoParametro(String nombreParametro, String tipoDato)
     {
-        metodo.setAttribute("parametro" + nombreParametro, nombreParametro);
-        metodo.setAttribute("tipoDatode" + nombreParametro, tipoDato);
+        parametro = doc.createElement("Parametro");
+        parametro.setAttribute("TipoDato", tipoDato);
+        parametro.setAttribute("identificador", nombreParametro);
+        ParametrosComportamiento.appendChild(parametro);
+        metodo.appendChild(ParametrosComportamiento);
         
     }
     
     public static void tagVariablesLocales(String nombreVariable, String tipoDato, String valor)
     {
-        variableLocal = doc.createElement("varialbeLocla");
+        System.out.println("Cae aqui la varible local");
+        variableLocal = doc.createElement("VariableLocal");
         variableLocal.setAttribute("TipoDato", tipoDato);
-        variableLocal.setAttribute("NombreVariable", nombreVariable);
-        variableLocal.setAttribute("Valor", valor);
+        variableLocal.setAttribute("nombre", nombreVariable);
+        variableLocal.setAttribute("valor", valor);
         metodo.appendChild(variableLocal);
         
     }

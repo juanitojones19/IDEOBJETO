@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="elquesemeantoja">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="34" acceso="private" nombre="hola"/>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="adios"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="empezarSaludos" parametropersoan="persoan" tipoDatodepersoan="String" tipoderetorno="void">
+            <varialbeLocla NombreVariable="inicio" TipoDato="int" Valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

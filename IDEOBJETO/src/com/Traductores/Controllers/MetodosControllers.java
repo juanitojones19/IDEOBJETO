@@ -34,10 +34,20 @@ public class MetodosControllers
         if(MetodoModel.validarIdentificador(nombreMetodo)){// si el nombre es valido
             if(MetodoModel.validarTipoRetorno(tipoRetorno)){
                 if(MetodoModel.agregarMetodo(acceso, nombreMetodo, tipoRetorno)){
+                    vista.getTexFieldNombreMetodo().setEditable(false);
+                    vista.getTexFieldTipoRetorno().setEditable(false);
+                    vista.getComboBoxTipoAcceso().setEnabled(false);
                     vista.getBotonAgregarParametros().setEnabled(true);
                     vista.getBotonAgregarVariablesLocales().setEnabled(true);
                     vista.getBotonAgregarNuevoMetodo().setEnabled(true);
                     vista.getBotonNombreMetodo().setEnabled(false);
+                    vista.getBotonTerminarParametros().setEnabled(true);
+                    vista.getTexFieldNombreParametro().setEditable(true);
+                    vista.getTexFieldTipoDato().setEditable(true);
+                    //vista.getTexFieldVariableLocal().setEditable(true);
+                    //vista.getTexFieldTipoDatoVariableLocal().setEditable(true);
+                    //vista.getTexFieldValorVariableLocal().setEditable(true);
+                    
                 }else{
                     vista.mensaje("Metodo: " + nombreMetodo + " yase agrego");
                 }
@@ -58,6 +68,8 @@ public class MetodosControllers
             if(ParametroModel.tipoValorValido(tipoDato)){
                 if(ParametroModel.agregarParametros(nombreParametro, tipoDato)){
                     vista.mensaje("Se agrego correctamtne el parametro: " + nombreParametro);
+                    vista.getTexFieldNombreParametro().setText("");
+                    vista.getTexFieldTipoDato().setText("");
                 }else{
                     vista.mensaje("El parametro esta repetido");
                 }
@@ -77,6 +89,9 @@ public class MetodosControllers
             if(VariableLocalModel.agregarVariable(nombreVariable, tipoDato, valor))// si no se ha agregado
             {
                 this.vista.mensaje(VariableLocalModel.obtenerMensaje());
+                vista.getTexFieldVariableLocal().setText("");
+                vista.getTexFieldTipoDatoVariableLocal().setText("");
+                vista.getTexFieldValorVariableLocal().setText("");
             }else{// si ya se agrego
                 this.vista.mensaje(VariableLocalModel.obtenerMensaje());
             }

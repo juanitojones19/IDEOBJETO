@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="clase">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="v1"/>
+        <AtributoObjeto Tipodevalor="int" Valor="13" acceso="private" nombre="v2"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="loquseamena" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="yolo"/>
+                <Parametro TipoDato="int" identificador="lol"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="String" nombre="ingles" valor=""/>
+            <VariableLocal TipoDato="int" nombre="you" valor="13"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

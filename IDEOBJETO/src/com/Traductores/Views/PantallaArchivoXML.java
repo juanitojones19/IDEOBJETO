@@ -175,7 +175,8 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
             
             XMLValidator validador = 
             new XMLValidator("lenguajeSchema.xsd",carpeta.getPath()+"/"+ClassController.nombreClase()+".xml");
-
+            //new XMLValidator("lenguajeSchema.xsd",carpeta.getPath()+"/"+"clase.xml");
+            //System.out.println(carpeta.getPath()+"/"+"clase.xml");        
            System.out.println
            ("706.xml es valido de acuerdo a cfdv32.xsd? "
                    + validador.isValido()); 
@@ -184,11 +185,7 @@ public class PantallaArchivoXML extends javax.swing.JDialog {
                System.out.println(validador.getErrorMSg());
                ArchivoXMLController.GuardarArchivo(textAreaXML.getText());
            }
-      
-            
-            
-
-            
+                  
         } catch (SAXException ex) {
             Logger.getLogger(PantallaArchivoXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {

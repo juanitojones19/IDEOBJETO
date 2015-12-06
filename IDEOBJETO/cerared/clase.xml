@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="clase">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="lo"/>
+        <AtributoObjeto Tipodevalor="int" Valor="|2" acceso="private" nombre="yo"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="metodo1" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="celos"/>
+                <Parametro TipoDato="int" identificador="codicia"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="yo" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="yu" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="el" valor=""/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

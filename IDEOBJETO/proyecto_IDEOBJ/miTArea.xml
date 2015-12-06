@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="miTArea">
+    <AtributosObjetos/>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="quepeod" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="quehonda"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="laviara" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="laviara2" valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

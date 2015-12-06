@@ -36,12 +36,7 @@ public class ArchivosModels
         ruta = rutaArchivo[0];
         System.out.println("Archivo: " + archivo);
         System.out.println("la rauta: " + rutaArchivo[0]);
-        
-        
-        
-       
-        
-        
+               
         try{
             File carpeta;
             

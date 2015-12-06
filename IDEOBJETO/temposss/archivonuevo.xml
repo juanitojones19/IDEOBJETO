@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="archivonuevo">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="termina"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="yolo" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="solo"/>
+                <Parametro TipoDato="int" identificador="solo1"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="variable" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="variable2" valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

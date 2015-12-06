@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="proyectosi">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="loca"/>
+        <AtributoObjeto Tipodevalor="int" Valor="13" acceso="private" nombre="cuerda"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="metodo1" tipoderetorno="String">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="double" identificador="antoja"/>
+                <Parametro TipoDato="double" identificador="anotja2"/>
+            </ParametrosComportamiento>
+            <varialbeLocal NombreVariable="v1" TipoDato="int" Valor="12"/>
+            <varialbeLocal NombreVariable="v2" TipoDato="int" Valor="13"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

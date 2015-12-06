@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="holapariente">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="deres"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="perex" tipoderetorno="int">
+            <varialbeLocla NombreVariable="hola" TipoDato="int" Valor="12"/>
+            <varialbeLocla NombreVariable="adios" TipoDato="int" Valor="13"/>
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="nose"/>
+                <Parametro TipoDato="int" identificador="sise"/>
+            </ParametrosComportamiento>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

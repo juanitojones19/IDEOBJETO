@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MoldeObjeto nombreClase="PruebaPrueba">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="loqueseseme"/>
+        <AtributoObjeto Tipodevalor="int" Valor="14" acceso="private" nombre="de"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="yolo" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="yosemero"/>
+                <Parametro TipoDato="int" identificador="yosemero2"/>
+            </ParametrosComportamiento>
+            <VariableLocal TipoDato="int" nombre="hola" valor="12"/>
+            <VariableLocal TipoDato="int" nombre="nobie" valor="12"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>

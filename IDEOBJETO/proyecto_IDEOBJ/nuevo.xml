@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><MoldeObjeto nombreClase="nuevo">
+    <AtributosObjetos>
+        <AtributoObjeto Tipodevalor="int" Valor="12" acceso="private" nombre="safo"/>
+        <AtributoObjeto Tipodevalor="int" Valor="14" acceso="private" nombre="nosa"/>
+    </AtributosObjetos>
+    <ComportamientosObjetos>
+        <ComportamientoObjeto acceso="public" nombre="metodo2" tipoderetorno="int">
+            <ParametrosComportamiento>
+                <Parametro TipoDato="int" identificador="elquesemeantoja"/>
+                <Parametro TipoDato="int" identificador="elquesemeantoja2"/>
+            </ParametrosComportamiento>
+            <varialbeLocal NombreVariable="hoa" TipoDato="int" Valor="12"/>
+            <varialbeLocal NombreVariable="adios" TipoDato="int" Valor="13"/>
+        </ComportamientoObjeto>
+    </ComportamientosObjetos>
+</MoldeObjeto>
