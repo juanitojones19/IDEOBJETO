@@ -65,6 +65,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         textFieldValorVariableLocal = new javax.swing.JTextField();
         botonTerminarParametros = new javax.swing.JButton();
+        botonAgregarCiclo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -149,6 +150,13 @@ public class AgregarMetodos extends javax.swing.JDialog {
             }
         });
 
+        botonAgregarCiclo.setText("Agregar Ciclo");
+        botonAgregarCiclo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarCicloActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,6 +164,8 @@ public class AgregarMetodos extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotonAgregarNuevoMetodo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonAgregarCiclo)
                 .addGap(18, 18, 18)
                 .addComponent(botonTerminar)
                 .addGap(18, 18, 18)
@@ -242,7 +252,8 @@ public class AgregarMetodos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAgregarNuevoMetodo)
                     .addComponent(botonTerminar)
-                    .addComponent(botonCancelar))
+                    .addComponent(botonCancelar)
+                    .addComponent(botonAgregarCiclo))
                 .addContainerGap())
         );
 
@@ -311,6 +322,13 @@ public class AgregarMetodos extends javax.swing.JDialog {
         getTexFieldValorVariableLocal().setEditable(true);
     }//GEN-LAST:event_botonTerminarParametrosActionPerformed
 
+    private void botonAgregarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCicloActionPerformed
+        // TODO add your handling code here:
+        AgregarCiclo pantallaAgregarCiclo = new AgregarCiclo(this, true);
+        pantallaAgregarCiclo.setVisible(true);
+        
+    }//GEN-LAST:event_botonAgregarCicloActionPerformed
+
     public void mensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
@@ -358,6 +376,7 @@ public class AgregarMetodos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarNuevoMetodo;
+    private javax.swing.JButton botonAgregarCiclo;
     private javax.swing.JButton botonAgregarParametros;
     private javax.swing.JButton botonAgregarVariablesLocales;
     private javax.swing.JButton botonCancelar;
